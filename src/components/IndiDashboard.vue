@@ -72,7 +72,7 @@ const devices = computed(() => {
 
         <li class="nav-item" role="presentation">
 
-            <button class="nav-link px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_home_pane" role="tab">
+            <button class="nav-link active px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_home_pane" role="tab">
                 <i class="bi bi-house"></i>
                 Home
             </button>
@@ -83,7 +83,7 @@ const devices = computed(() => {
 
         <li class="nav-item" role="presentation" v-for="(deviceName, deviceIndex) in Object.keys(devices)" :key="deviceIndex">
 
-            <button class="nav-link px-2 py-1" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
+            <button class="nav-link xxxxxx px-2 py-1" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
                 <i class="bi bi-diamond"></i>
                 {{ deviceName }}
             </button>
@@ -94,7 +94,7 @@ const devices = computed(() => {
 
         <li class="nav-item" role="presentation">
 
-            <button class="nav-link px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
+            <button class="nav-link xxxxxx px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
                 <i class="bi bi-terminal-fill"></i>
                 Console
             </button>
@@ -117,8 +117,10 @@ const devices = computed(() => {
                 <div class="col-md-6">
 
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault /">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="indi_main_switch /">
+                        <label class="form-check-label" for="indi_main_switch">
+                            Device switch
+                        </label>
                     </div>
 
                 </div>
