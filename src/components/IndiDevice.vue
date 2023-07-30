@@ -36,7 +36,7 @@ const props = defineProps({
 
             <!-- *************************************************************************************************** -->
 
-            <ul class="nav nav-tabs mb-2" role="tablist">
+            <ul class="nav nav-tabs mb-3" role="tablist">
 
                 <li class="nav-item" role="presentation" v-for="(groupName, groupIndex) in Object.keys(deviceInfo)" :key="groupIndex">
 
