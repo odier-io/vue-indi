@@ -81,7 +81,7 @@ const _processMessage = (defXXXVectorDict, message) => {
         {
             const textarea = document.getElementById('indi_console')
 
-            textarea.value = `${message['@device']}: ${message['@message']}\n${textarea.value}`;
+            textarea.value = `${message['@device']} :: ${message['@message']}\n${textarea.value}`;
         }
 
         /*------------------------------------------------------------------------------------------------------------*/
