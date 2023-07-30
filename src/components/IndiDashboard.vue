@@ -95,7 +95,7 @@ const devices = computed(() => {
         <li class="nav-item" role="presentation">
 
             <button class="nav-link xxxxxx px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
-                <i class="bi bi-terminal-fill"></i>
+                <i class="bi bi-terminal"></i>
                 Console
             </button>
 
