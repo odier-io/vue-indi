@@ -46,7 +46,8 @@ const _update_func = (endpoint, token) => {
 
             _connected = true;
 
-            if(_connectionCallback) {
+            if(_connectionCallback)
+            {
                 _connectionCallback(true);
             }
         });
@@ -57,7 +58,8 @@ const _update_func = (endpoint, token) => {
 
             _connected = true;
 
-            if(_connectionCallback) {
+            if(_connectionCallback)
+            {
                 _connectionCallback(true);
             }
         });
@@ -68,10 +70,26 @@ const _update_func = (endpoint, token) => {
 
             _connected = false;
 
-            if(_connectionCallback) {
+            if(_connectionCallback)
+            {
                 _connectionCallback(false);
             }
         });
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        _client.replaceAllListeners = (topic) => {
+
+            _client.removeAllListeners(topic);
+
+            _client.on(topic, (payload) => {
+
+                if(_messageCallback)
+                {
+                    _messageCallback(topic, payload);
+                }
+            });
+        };
 
         /*------------------------------------------------------------------------------------------------------------*/
     }
@@ -103,7 +121,7 @@ const _subscribe_func = (topic) => {
 
     if(_client)
     {
-        _client.removeAllListeners(topic).on(topic, (payload) => { if(_messageCallback) _messageCallback(topic, payload) });
+        _client.replaceAllListeners(topic);
     }
 };
 
