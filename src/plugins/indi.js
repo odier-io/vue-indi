@@ -79,6 +79,10 @@ const _processMessage = (defXXXVectorDict, message) => {
 
         else if(message['<>'] === 'message')
         {
+            const textarea = document.getElementById('indi_console')
+
+            textarea.value = `${message['@message']}\n${textarea.value}`;
+
             console.log(message['@message']);
         }
 

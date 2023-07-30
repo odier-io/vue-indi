@@ -68,23 +68,29 @@ const devices = computed(() => {
 
     <ul class="nav nav-tabs mb-3" role="tablist">
 
+        <!-- ******************************************************************************************************* -->
+
         <li class="nav-item" role="presentation" v-for="(deviceName, deviceIndex) in Object.keys(devices)" :key="deviceIndex">
 
-            <button :class="`nav-link ${deviceIndex === 0 ? 'active' : ''} px-2 py-1`" type="button" data-bs-toggle="tab" :data-bs-target="`#device_pane_${deviceIndex}`" role="tab">
+            <button :class="`nav-link ${deviceIndex === 0 ? 'active' : ''} px-2 py-1`" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
                 <i class="bi bi-diamond"></i>
                 {{ deviceName }}
             </button>
 
         </li>
 
+        <!-- ******************************************************************************************************* -->
+
         <li class="nav-item" role="presentation">
 
-            <button class="nav-link px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#device_pane_console" role="tab">
+            <button class="nav-link px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
                 <i class="bi bi-terminal-fill"></i>
                 Console
             </button>
 
         </li>
+
+        <!-- ******************************************************************************************************* -->
 
     </ul>
 
@@ -94,7 +100,7 @@ const devices = computed(() => {
 
         <!-- ******************************************************************************************************* -->
 
-        <div :class="`tab-pane fade ${deviceIndex === 0 ? 'show active' : ''}`" :id="`device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
+        <div :class="`tab-pane fade ${deviceIndex === 0 ? 'show active' : ''}`" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
             <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
 
@@ -102,9 +108,9 @@ const devices = computed(() => {
 
         <!-- ******************************************************************************************************* -->
 
-        <div class="tab-pane fade" id="device_pane_console" tabindex="0" role="tabpanel">
+        <div class="tab-pane fade" id="indi_console_pane" tabindex="0" role="tabpanel">
 
-            <textarea class="form-control h-100 w-100" id=""></textarea>
+            <textarea class="form-control" id="indi_console" readonly="readonly" style="height: calc(100vh - 8rem);"></textarea>
 
         </div>
 
