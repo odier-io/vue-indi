@@ -104,6 +104,7 @@ const devices = computed(() => {
 
         <div class="tab-pane fade" id="device_pane_console" tabindex="0" role="tabpanel">
 
+            <textarea class="form-control h-100 w-100" id=""></textarea>
 
         </div>
 
