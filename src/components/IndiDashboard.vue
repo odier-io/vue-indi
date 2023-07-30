@@ -113,6 +113,21 @@ const devices = computed(() => {
 
         <div class="tab-pane fade show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault /">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+
+
+                </div>
+            </div>
 
         </div>
 
@@ -128,7 +143,7 @@ const devices = computed(() => {
 
         <div class="tab-pane fade xxxx xxxxxx" id="indi_console_pane" tabindex="0" role="tabpanel">
 
-            <textarea class="form-control" id="indi_console" readonly="readonly" style="height: calc(100vh - 8rem);"></textarea>
+            <textarea class="form-control" id="indi_console" readonly="readonly"></textarea>
 
         </div>
 
@@ -139,3 +154,25 @@ const devices = computed(() => {
     <!-- *********************************************************************************************************** -->
 
 </template>
+
+<style scoped>
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.form-check-input {
+    width: 2em;
+    height: 1em;
+}
+
+.form-check-input::before {
+    width: 2em;
+    height: 2em;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+#indi_console {
+    height: calc(100vh - 8rem);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+</style>
