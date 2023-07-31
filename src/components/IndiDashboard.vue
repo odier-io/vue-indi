@@ -113,9 +113,9 @@ const devices = computed(() => {
 
         <div class="tab-pane fade show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
-            <div class="d-flex H-100">
+            <div class="H-100">
 
-                <div class="row my-auto">
+                <div class="row w-75">
                     <div class="col-md-6 text-center align-self-center">
 
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -178,7 +178,10 @@ const devices = computed(() => {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 .H-100 {
-    height: calc(100vh - 8rem);
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    min-height: calc(100vh - 16rem);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
