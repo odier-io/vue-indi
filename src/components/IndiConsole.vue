@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { ref, watch, onMounted } from 'vue';
+import { ref, onMounted, watchEffect } from 'vue';
 
 import { Terminal } from 'xterm';
 
@@ -30,27 +30,25 @@ const terminalDiv = ref(null);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 onMounted(() => {
 
-    /*----------------------------------------------------------------------------------------------------------------*/
+    if(terminalDiv.value === null)
+    {
+        terminal.open(terminalDiv.value);
+    }
+});
 
-    const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
+/*--------------------------------------------------------------------------------------------------------------------*/
 
-    terminal.open(terminalDiv.value);
+watchEffect(() => {
 
-    console.log('Issue');
+    terminal.clear();
 
-    /*----------------------------------------------------------------------------------------------------------------*/
-
-    watch([() => messageStore.messages, () => props.deviceName], () => {
-
-        terminal.clear();
-
-        terminal.write(messageStore.getMessagesForDevice(props.deviceName));
-
-    }, {immediate: true});
-
-    /*----------------------------------------------------------------------------------------------------------------*/
+    terminal.write(messageStore.getMessagesForDevice(props.deviceName));
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
