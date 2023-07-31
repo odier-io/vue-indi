@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { watch } from 'vue';
+import { watchEffect } from 'vue';
 
 import Modal from 'bootstrap/js/src/modal';
 
@@ -26,14 +26,14 @@ const props = defineProps({
 
 const openModal = () => {
 
-    messageStore.deviceName = props.deviceName;
-
     new Modal(document.getElementById('indi_console')).show();
+
+    messageStore.deviceName = props.deviceName;
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watch([messageStore.messages, messageStore.deviceName], () => {
+watchEffect([messageStore.messages, messageStore.deviceName], () => {
 
    messageStore.updateMessages(props.deviceName);
 });
