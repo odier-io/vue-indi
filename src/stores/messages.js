@@ -12,15 +12,19 @@ const useMessageStore = defineStore('messages', {
     state: () => {
         return {
             messages: {},
-            deviceName: {},
+            deviceName: '',
             terminalDiv: null,
             terminalInstance: new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'}),
         };
     },
     actions: {
-        getMessagesForDevice(device)
+        showMessages(deviceName)
         {
-           return device in this.messages ? this.messages[device].map((x) => `${x.timestamp}: ${x.message}`).join('\n') + '\n' : '';
+            this.deviceName = deviceName;
+
+            this.terminalInstance.clear();
+
+            this.terminalInstance.open(device in this.messages ? this.messages[device].map((x) => `${x.timestamp}: ${x.message}`).join('\n') + '\n' : '');
         },
     },
 });
