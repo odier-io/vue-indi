@@ -17,7 +17,7 @@ const props = defineProps({
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const state = reactive({
-   onOff: false,
+   onOff: 'off',
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -133,12 +133,12 @@ const devices = computed(() => {
 
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
-                                    <input type="radio" class="btn-check" name="D0129CB6" id="DE92759F" autocomplete="off" v-model="state.onOff">
+                                    <input type="radio" class="btn-check" name="D0129CB6" id="DE92759F" autocomplete="off" value="on" v-model="state.onOff">
                                     <label class="btn btn-outline-primary" for="DE92759F">
                                         Turn on devices
                                     </label>
 
-                                    <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off">
+                                    <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off" value="off" v-model="state.onOff">
                                     <label class="btn btn-outline-secondary" for="D8FB7C2E">
                                         Turn off devices
                                     </label>
