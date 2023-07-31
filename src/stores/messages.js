@@ -28,6 +28,8 @@ const useMessageStore = defineStore('messages', {
         {
             this.terminalInstance.clear();
 
+            this.terminalInstance.write('-----------');
+
             this.terminalInstance.write(this.deviceName in this.messages ? this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).join('\n') + '\n' : '');
         },
     },
