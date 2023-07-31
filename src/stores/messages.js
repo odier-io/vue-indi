@@ -28,9 +28,7 @@ const useMessageStore = defineStore('messages', {
         {
             this.terminalInstance.clear();
 
-            this.terminalInstance.writeln('Hello world!' + (this.deviceName in this.messages ? this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).length : 0));
-
-            //this.terminalInstance.writeln(this.deviceName in this.messages ? this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).join('\n') : '');
+            this.terminalInstance.writeln(this.deviceName in this.messages ? this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).join(',') : 0);
         },
     },
 });
