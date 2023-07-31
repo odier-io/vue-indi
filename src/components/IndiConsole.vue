@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { watchEffect } from 'vue';
+import { watch } from 'vue';
 
 import Modal from 'bootstrap/js/src/modal';
 
@@ -33,10 +33,11 @@ const openModal = () => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watchEffect([messageStore.messages, messageStore.deviceName], () => {
+watch([messageStore.messages, messageStore.deviceName], () => {
 
    messageStore.updateMessages(props.deviceName);
-});
+
+}, {immediate: true});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
