@@ -164,7 +164,7 @@ const devices = computed(() => {
 
             <div class="H-100">
 
-               <textarea class="form-control h-100 w-100" id="indi_console" readonly="readonly"></textarea>
+               <textarea class="form-control" id="indi_console" readonly="readonly"></textarea>
 
             </div>
 
@@ -183,7 +183,7 @@ const devices = computed(() => {
 
 .H-100 {
     display: flex;
-    min-height: calc(100vh - 12rem);
+    min-height: calc(100vh - 16rem);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
