@@ -69,7 +69,7 @@ onMounted(() => {
 
                     <div class="modal-body bg-black px-3 py-2">
 
-                        <div ref="terminalDiv"></div>
+                        <div class="rounded" ref="terminalDiv"></div>
 
                     </div>
 
