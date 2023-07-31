@@ -113,7 +113,7 @@ const devices = computed(() => {
 
         <div class="tab-pane fade show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
-            <div clas="d-flex H-100">
+            <div class="d-flex H-100">
 
                 <div class="row my-auto">
                     <div class="col-md-6 text-center align-self-center">
@@ -150,7 +150,7 @@ const devices = computed(() => {
 
         <div class="tab-pane fade xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
-            <div clas="d-flex H-100">
+            <div class="d-flex H-100">
 
                 <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
 
