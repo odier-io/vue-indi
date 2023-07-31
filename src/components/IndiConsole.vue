@@ -5,6 +5,8 @@ import { ref, onMounted } from 'vue';
 
 import { Terminal } from 'xterm';
 
+import 'xterm/css/xterm.css';
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import useMessageStore from '../stores/messages';
