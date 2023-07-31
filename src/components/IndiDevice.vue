@@ -45,7 +45,7 @@ const showMessages = () => {
             <i class="bi bi-diamond"></i>
             {{ deviceName }}
             [
-            <button class="btn btn-xs btn-success" type="button" @click="showMessages()">
+            <button class="btn btn-xs btn-secondary" type="button" @click="showMessages()">
                 <i class="bi bi-card-text"></i>
                 logs
             </button>
