@@ -79,12 +79,7 @@ const devices = computed(() => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-onMounted(() => {
-
-    messageStore.terminalInstance.open(
-        messageStore.terminalDiv = terminalDiv.value
-    );
-})
+onMounted(() => messageStore.terminalInstance.open(terminalDiv.value));
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
