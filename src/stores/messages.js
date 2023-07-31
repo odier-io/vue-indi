@@ -20,8 +20,6 @@ const useMessageStore = defineStore('messages', {
     actions: {
         updateMessages(deviceName)
         {
-            this.deviceName = deviceName;
-
             this.terminalInstance.clear();
 
             this.terminalInstance.write(deviceName in this.messages ? this.messages[deviceName].map((x) => `${x.timestamp}: ${x.message}`).join('\n') + '\n' : '');

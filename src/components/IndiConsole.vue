@@ -26,14 +26,14 @@ const props = defineProps({
 
 const openModal = () => {
 
-    new Modal(document.getElementById('indi_console')).show();
+    messageStore.deviceName = props.deviceName;
 
-    messageStore.updateMessages(props.deviceName);
+    new Modal(document.getElementById('indi_console')).show();
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watch(messageStore.messages, () => {
+watch([messageStore.messages, messageStore.deviceName], () => {
 
    messageStore.updateMessages(props.deviceName);
 });
