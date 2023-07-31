@@ -115,7 +115,7 @@ const devices = computed(() => {
 
             <div class="H-100">
 
-                <div class="row w-75">
+                <div class="row w-75 m-auto">
                     <div class="col-md-6 text-center align-self-center">
 
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -179,8 +179,6 @@ const devices = computed(() => {
 
 .H-100 {
     display: flex;
-    align-self: center;
-    justify-content: center;
     min-height: calc(100vh - 16rem);
 }
 
