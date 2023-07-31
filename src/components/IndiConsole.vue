@@ -33,7 +33,7 @@ const terminalDiv = ref(null);
 let terminal = null;
 
 
-alert('Hello');
+console.log('Hello');
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 onMounted(() => {
