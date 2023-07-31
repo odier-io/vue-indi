@@ -37,6 +37,9 @@ watch(() => [messageStore.messages, messageStore.deviceName], () => {
 
    messageStore.updateMessages(props.deviceName);
 
+   console.log('AAAAAA');
+   console.log('------');
+
 }, {deep: true});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
