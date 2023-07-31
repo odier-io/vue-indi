@@ -1,5 +1,9 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import useMessageStore from '../stores/messages';
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const _buildKey = (message) => `${message['@device']}::${message['@name']}`;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -79,9 +83,23 @@ const _processMessage = (defXXXVectorDict, message) => {
 
         else if(message['<>'] === 'message')
         {
-            const textarea = document.getElementById('indi_console')
+            let list;
 
-            textarea.value = `${message['@device']} :: ${message['@message']}\n${textarea.value}`;
+            const store = useMessageStore();
+
+            if(message['@device'] in store.messages)
+            {
+                list = store.messages[message['@device']] ; //;
+            }
+            else
+            {
+                list = store.messages[message['@device']] = [];
+            }
+
+            list.push({
+                message: message['@message'] || '',
+                timestamp: message['@timestamp'] || '',
+            });
         }
 
         /*------------------------------------------------------------------------------------------------------------*/

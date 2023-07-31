@@ -1,29 +1,25 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { createPinia } from 'pinia';
+import { defineStore } from 'pinia';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import indi from './plugins/indi';
-import sock from './plugins/sock';
-
-import IndiDashboard from './components/IndiDashboard.vue';
+const useMessageStore = defineStore('messages', {
+    state: () => {
+        return {
+            messages: {},
+        };
+    },
+    actions: {
+        getMessagesForDevice(device)
+        {
+           return device in this.messages ? '\n'.join(`${this.messages.timestamp}: ${this.messages.message}`) : '';
+        },
+    },
+});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const setup = (app) => {
-
-    app.use(createPinia());
-
-    app.use(indi);
-    app.use(sock);
-};
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-export {
-    setup,
-    IndiDashboard,
-};
+export default useMessageStore;
 
 /*--------------------------------------------------------------------------------------------------------------------*/

@@ -3,6 +3,12 @@
 
 import IndiPanel from './IndiGroup.vue';
 
+import useMessageStore from '../stores/messages';
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const messageStore = useMessageStore();
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const props = defineProps({
@@ -21,6 +27,13 @@ const props = defineProps({
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+
+const showMessages = () => {
+
+    console.log(messageStore.getMessagesForDevice(props.deviceName));
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 </script>
 
 <template>
@@ -31,6 +44,12 @@ const props = defineProps({
         <div class="card-header px-3 py-2">
             <i class="bi bi-diamond"></i>
             {{ deviceName }}
+            [
+            <button class="btn btn-xs btn-success" type="button" @click="showMessages()">
+                <i class="bi bi-card-text"></i>
+                logs
+            </button>
+            ]
         </div>
         <div class="card-body px-3 py-2">
 

@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import {computed, reactive} from 'vue';
+import { computed, reactive } from 'vue';
 
 import IndiDevice from './IndiDevice.vue';
 
@@ -98,17 +98,6 @@ const devices = computed(() => {
 
         <!-- ******************************************************************************************************* -->
 
-        <li class="nav-item" role="presentation">
-
-            <button class="nav-link xxxxxx px-3 py-2" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
-                <i class="bi bi-file-text"></i>
-                Console
-            </button>
-
-        </li>
-
-        <!-- ******************************************************************************************************* -->
-
     </ul>
 
     <!-- *********************************************************************************************************** -->
@@ -123,8 +112,13 @@ const devices = computed(() => {
 
                 <div class="card m-auto" style="width: 1200px;">
                     <div class="card-header px-3 py-2">
-                        <i class="bi bi-house"></i>
-                        Home
+                        <span class="me-auto">
+                            <i class="bi bi-house"></i>
+                            Home
+                        </span>
+                        <button>
+
+                        </button>
                     </div>
                     <div class="card-body px-3 py-5">
 
@@ -169,18 +163,6 @@ const devices = computed(() => {
             <div class="H-100">
 
                 <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
-
-            </div>
-
-        </div>
-
-        <!-- ******************************************************************************************************* -->
-
-        <div class="tab-pane fade xxxx xxxxxx" id="indi_console_pane" tabindex="0" role="tabpanel">
-
-            <div class="H-100">
-
-               <textarea class="form-control" id="indi_console" readonly="readonly"></textarea>
 
             </div>
 
