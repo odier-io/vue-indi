@@ -133,7 +133,7 @@ const devices = computed(() => {
                                     </label>
 
                                     <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off">
-                                    <label class="btn btn-outline-primary" for="D8FB7C2E">
+                                    <label class="btn btn-outline-secondary" for="D8FB7C2E">
                                         Turn off devices
                                     </label>
 
