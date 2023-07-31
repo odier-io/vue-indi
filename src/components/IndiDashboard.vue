@@ -120,9 +120,9 @@ const devices = computed(() => {
                         <i class="bi bi-house"></i>
                         Home
                     </div>
-                    <div class="card-body px-3 py-2">
+                    <div class="card-body px-3 py-5">
 
-                        <div class="row w-75 m-auto">
+                        <div class="row">
                             <div class="col-md-6 text-center align-self-center">
 
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
