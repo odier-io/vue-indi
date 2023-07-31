@@ -67,7 +67,7 @@ onMounted(() => {
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
-                    <div class="modal-body px-3 py-2">
+                    <div class="modal-body bg-black px-3 py-2">
 
                         <div ref="terminalDiv"></div>
 
