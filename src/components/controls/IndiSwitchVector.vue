@@ -61,7 +61,7 @@ const sendMessage = (index) => {
         <div class="col-sm-10 text-center">
             <div class="btn-group btn-group-sm mb-1 w-50" role="group">
 
-                <button class="btn" :class="{'btn-primary': defSwitch['$'] === 'On', 'btn-outline-secondary': defSwitch['$'] === 'Off', 'disabled': defSwitchVector['@perm'] === 'wo'}" :style="{'width': `${100.0 / Object.keys(defSwitchVector).length}%`}" v-for="(defSwitch, index) in defSwitchVector['children']" :key="index" @click="sendMessage(index)">
+                <button class="btn" :class="{'btn-primary': defSwitch['$'] === 'On', 'btn-outline-secondary': defSwitch['$'] === 'Off', 'disabled': defSwitchVector['@perm'] === 'wo'}" :style="{'width': `${100.0 / defSwitchVector['children'].length}%`}" v-for="(defSwitch, index) in defSwitchVector['children']" :key="index" @click="sendMessage(index)">
                     {{ defSwitch['@label'] || defSwitch['@name'] }}
                 </button>
 
