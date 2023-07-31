@@ -72,7 +72,7 @@ const devices = computed(() => {
 
         <li class="nav-item" role="presentation">
 
-            <button class="nav-link active px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_home_pane" role="tab">
+            <button class="nav-link active px-3 py-2" type="button" data-bs-toggle="tab" data-bs-target="#indi_home_pane" role="tab">
                 <i class="bi bi-house"></i>
                 Home
             </button>
@@ -83,7 +83,7 @@ const devices = computed(() => {
 
         <li class="nav-item" role="presentation" v-for="(deviceName, deviceIndex) in Object.keys(devices)" :key="deviceIndex">
 
-            <button class="nav-link xxxxxx px-2 py-1" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
+            <button class="nav-link xxxxxx px-3 py-2" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
                 <i class="bi bi-diamond"></i>
                 {{ deviceName }}
             </button>
@@ -94,7 +94,7 @@ const devices = computed(() => {
 
         <li class="nav-item" role="presentation">
 
-            <button class="nav-link xxxxxx px-2 py-1" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
+            <button class="nav-link xxxxxx px-3 py-2" type="button" data-bs-toggle="tab" data-bs-target="#indi_console_pane" role="tab">
                 <i class="bi bi-terminal"></i>
                 Console
             </button>
