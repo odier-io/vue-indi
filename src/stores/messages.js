@@ -34,7 +34,7 @@ const useMessageStore = defineStore('messages', {
 
             if(this.deviceName in this.messages)
             {
-                this.messages[this.deviceName].slice().reverse().map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => this.terminalInstance.writeln(line));
+                this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => this.terminalInstance.writeln(line));
             }
         },
 

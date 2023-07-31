@@ -96,7 +96,7 @@ const _processMessage = (defXXXVectorDict, message) => {
                 list = store.messages[message['@device']] = [];
             }
 
-            list.push({
+            list.unshift({
                 message: message['@message'] || '',
                 timestamp: message['@timestamp'] || '',
             });
