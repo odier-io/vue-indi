@@ -33,11 +33,11 @@ const openModal = () => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watch([messageStore.messages, messageStore.deviceName], () => {
+watch(() => [messageStore.messages, messageStore.deviceName], () => {
 
    messageStore.updateMessages(props.deviceName);
 
-}, {immediate: true});
+}, {deep: true});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
