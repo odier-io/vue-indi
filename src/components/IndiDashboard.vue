@@ -205,7 +205,7 @@ onMounted(() => messageStore.terminalInstance.open(terminalDiv.value));
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
-                    <div class="modal-body rounded bg-black px-3 py-2" ref="terminalDiv"></div>
+                    <div class="modal-body bg-black px-3 py-2" ref="terminalDiv"></div>
 
                 </div>
             </div>
@@ -223,6 +223,13 @@ onMounted(() => messageStore.terminalInstance.open(terminalDiv.value));
 .H-100 {
     display: flex;
     min-height: calc(100vh - 16rem);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.modal-body {
+    border-bottom-right-radius: var(--bs-border-radius);
+    border-bottom-left-radius: var(--bs-border-radius);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/

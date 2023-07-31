@@ -44,7 +44,7 @@ const useMessageStore = defineStore('messages', {
 
         selectDevice(deviceName)
         {
-            this.deviceName = deviceName;
+            this.deviceName = (deviceName || '').trim();
 
             this.updateMessages();
         },
