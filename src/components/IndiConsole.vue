@@ -28,17 +28,14 @@ const openModal = () => {
 
     new Modal(document.getElementById('indi_console')).show();
 
-    messageStore.deviceName = props.deviceName;
+    messageStore.setMessages(props.deviceName);
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watch(() => [messageStore.messages, messageStore.deviceName], () => {
+watch(() => [messageStore.messages], () => {
 
-   messageStore.updateMessages(props.deviceName);
-
-   console.log('AAAAAA');
-   console.log('------');
+   messageStore.updateMessages();
 
 }, {deep: true});
 
