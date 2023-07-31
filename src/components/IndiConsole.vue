@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { watchEffect } from 'vue';
+import { watch } from 'vue';
 
 import Modal from 'bootstrap/js/src/modal';
 
