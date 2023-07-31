@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { ref, onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
 import { Terminal } from 'xterm';
 
@@ -37,6 +37,13 @@ const terminal = new Terminal({ convertEol: true, fontFamily: 'Ubuntu Mono, cour
 onMounted(() => {
 
     terminal.open(terminalDiv.value);
+
+    watch([messageStore.messages, props.deviceName], () => {
+
+        terminal.clear();
+
+        terminal.write(messageStore.getMessagesForDevice(props.deviceName));
+    });
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
