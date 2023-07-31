@@ -26,26 +26,21 @@ const props = defineProps({
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const terminalDiv = ref(null);
+const divRef = ref(null);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-let terminal = null;
+const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
 
-
-console.log('Hello');
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 onMounted(() => {
 
-    if(terminal == null)
-    {
-        terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
-
-        terminal.open(terminalDiv.value);
-    }
+    terminal.open(divRef.value);
 });
 
+
+console.log('Hello');
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 watchEffect(() => {
@@ -76,23 +71,23 @@ watchEffect(() => {
 
     <teleport to="body">
 
-        <div class="modal" tabindex="-1" id="indi_console">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+        <div-ref class="modal" tabindex="-1" id="indi_console">
+            <div-ref class="modal-dialog modal-lg">
+                <div-ref class="modal-content">
 
-                    <div class="modal-header px-3 py-2">
+                    <div-ref class="modal-header px-3 py-2">
                         <h5 class="modal-title">
                             <i class="bi bi-card-text"></i>
                             {{ deviceName }}
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
+                    </div-ref>
 
-                    <div class="modal-body rounded-bottom bg-black px-3 py-2" ref="terminalDiv"></div>
+                    <div-ref class="modal-body rounded-bottom bg-black px-3 py-2" ref="divRef"></div-ref>
 
-                </div>
+                </div-ref>
             </div>
-        </div>
+        </div-ref>
 
     </teleport>
 
