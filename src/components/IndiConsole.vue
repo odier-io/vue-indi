@@ -30,14 +30,16 @@ const terminalDiv = ref(null);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
+let terminal = null;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 onMounted(() => {
 
-    if(terminalDiv.value === null)
+    if(terminal == null)
     {
+        terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
+
         terminal.open(terminalDiv.value);
     }
 });
@@ -49,6 +51,8 @@ watchEffect(() => {
     terminal.clear();
 
     terminal.write(messageStore.getMessagesForDevice(props.deviceName));
+
+    console.log(messageStore.getMessagesForDevice(props.deviceName));
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
