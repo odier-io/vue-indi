@@ -19,9 +19,41 @@ const useMessageStore = defineStore('messages', {
     actions: {
         /*------------------------------------------------------------------------------------------------------------*/
 
-        setMessages(deviceName)
+        inject(message)
+        {
+            let list;
+
+            if(message['@device'] in this.messages)
+            {
+                list = this.messages[message['@device']] ; //;
+            }
+            else
+            {
+                list = this.messages[message['@device']] = [];
+            }
+
+            list.unshift({
+                message: message['@message'] || '',
+                timestamp: message['@timestamp'] || '',
+            });
+
+            this.updateMessages();
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        selectDevice(deviceName)
         {
             this.deviceName = deviceName;
+
+            this.updateMessages();
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        clearMessages()
+        {
+            this.messages[this.deviceName] = [];
 
             this.updateMessages();
         },

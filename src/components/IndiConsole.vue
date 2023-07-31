@@ -24,7 +24,7 @@ const props = defineProps({
 
 const openModal = () => {
 
-    messageStore.setMessages(props.deviceName);
+    messageStore.selectDevice(props.deviceName);
 
     new Modal(document.getElementById('indi_console')).show();
 };

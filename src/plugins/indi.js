@@ -83,25 +83,7 @@ const _processMessage = (defXXXVectorDict, message) => {
 
         else if(message['<>'] === 'message')
         {
-            let list;
-
-            const store = useMessageStore();
-
-            if(message['@device'] in store.messages)
-            {
-                list = store.messages[message['@device']] ; //;
-            }
-            else
-            {
-                list = store.messages[message['@device']] = [];
-            }
-
-            list.unshift({
-                message: message['@message'] || '',
-                timestamp: message['@timestamp'] || '',
-            });
-
-            store.updateMessages();
+            useMessageStore().inject(message);
         }
 
         /*------------------------------------------------------------------------------------------------------------*/

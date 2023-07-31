@@ -196,7 +196,7 @@ onMounted(() => messageStore.terminalInstance.open(terminalDiv.value));
                             <i class="bi bi-card-text"></i>
                             {{ messageStore.deviceName }}
                             [
-                                <button class="btn btn-xs btn-secondary" type="button">
+                                <button class="btn btn-xs btn-secondary" type="button" @click="messageStore.clearMessages()">
                                     <i class="bi bi-trash"></i>
                                     empty
                                 </button>
