@@ -18,7 +18,7 @@ const useMessageStore = defineStore('messages', {
         };
     },
     actions: {
-        showMessages(deviceName)
+        updateMessages(deviceName)
         {
             this.deviceName = deviceName;
 
