@@ -32,6 +32,8 @@ const terminalDiv = ref(null);
 
 let terminal = null;
 
+
+alert('Hello');
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 onMounted(() => {
@@ -48,11 +50,14 @@ onMounted(() => {
 
 watchEffect(() => {
 
-    terminal.clear();
+    if(terminal != null)
+    {
+        terminal.clear();
 
-    terminal.write(messageStore.getMessagesForDevice(props.deviceName));
+        terminal.write(messageStore.getMessagesForDevice(props.deviceName));
 
-    console.log(messageStore.getMessagesForDevice(props.deviceName));
+        console.log(messageStore.getMessagesForDevice(props.deviceName));
+    }
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
