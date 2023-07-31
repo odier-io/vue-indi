@@ -38,6 +38,8 @@ onMounted(() => {
 
     terminal.open(terminalDiv.value);
 
+    console.log('Issue');
+
     /*----------------------------------------------------------------------------------------------------------------*/
 
     watch([() => messageStore.messages, () => props.deviceName], () => {
