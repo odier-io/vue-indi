@@ -36,7 +36,7 @@ const props = defineProps({
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
-                    <div class="modal-header">
+                    <div class="modal-header px-3 py-2">
                         <h5 class="modal-title">
                             <i class="bi bi-card-text"></i>
                             Console
@@ -44,7 +44,7 @@ const props = defineProps({
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
-                    <div class="modal-body">
+                    <div class="modal-body px-3 py-2">
 
                         TODO
 
