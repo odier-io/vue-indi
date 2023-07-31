@@ -37,7 +37,10 @@ watch(() => [messageStore.messages], () => {
 
    messageStore.updateMessages();
 
-}, {deep: true});
+}, {
+    immediate: true,
+    deep: true,
+});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
