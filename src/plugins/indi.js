@@ -100,6 +100,8 @@ const _processMessage = (defXXXVectorDict, message) => {
                 message: message['@message'] || '',
                 timestamp: message['@timestamp'] || '',
             });
+
+            store.updateMessages();
         }
 
         /*------------------------------------------------------------------------------------------------------------*/

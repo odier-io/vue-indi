@@ -22,24 +22,13 @@ const useMessageStore = defineStore('messages', {
         {
             this.deviceName = deviceName;
 
-            console.log('**************************');
-
             this.updateMessages();
         },
         updateMessages()
         {
-            const content = this.deviceName in this.messages ? this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).join('\n') : '';
+            this.terminalInstance.clear();
 
-            this.terminalInstance.reset();
-
-            this.terminalInstance.writeln(content);
-
-            if(this.deviceName in this.messages)
-            {
-                console.log('----------------------------');
-                console.log(content);
-            }
-
+            this.terminalInstance.writeln(this.deviceName in this.messages ? this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).join('\n') : '');
         },
     },
 });
