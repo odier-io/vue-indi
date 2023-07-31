@@ -38,12 +38,13 @@ onMounted(() => {
 
     terminal.open(terminalDiv.value);
 
-    watch([messageStore.messages, props.deviceName], () => {
+    watch([() => messageStore.messages, () => props.deviceName], () => {
 
         terminal.clear();
 
         terminal.write(messageStore.getMessagesForDevice(props.deviceName));
-    });
+
+    }, {immediate: true});
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -69,7 +70,7 @@ onMounted(() => {
                     <div class="modal-header px-3 py-2">
                         <h5 class="modal-title">
                             <i class="bi bi-card-text"></i>
-                            Console for {{ deviceName }}
+                            {{ deviceName }}
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
