@@ -113,7 +113,7 @@ const devices = computed(() => {
 
         <div class="tab-pane fade show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
-            <div clas="d-flex" id="indi_main">
+            <div clas="d-flex H-100">
 
                 <div class="row my-auto">
                     <div class="col-md-6 text-center align-self-center">
@@ -150,7 +150,11 @@ const devices = computed(() => {
 
         <div class="tab-pane fade xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
-            <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
+            <div clas="d-flex H-100">
+
+                <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
+
+            </div>
 
         </div>
 
@@ -158,7 +162,7 @@ const devices = computed(() => {
 
         <div class="tab-pane fade xxxx xxxxxx" id="indi_console_pane" tabindex="0" role="tabpanel">
 
-            <textarea class="form-control" id="indi_console" readonly="readonly"></textarea>
+            <textarea class="form-control H-100" id="indi_console" readonly="readonly"></textarea>
 
         </div>
 
@@ -173,8 +177,7 @@ const devices = computed(() => {
 <style scoped>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-#indi_main,
-#indi_console {
+.H-100 {
     height: calc(100vh - 8rem);
 }
 
