@@ -27,7 +27,7 @@ const props = defineProps({
 
     <!-- *********************************************************************************************************** -->
 
-    <div class="card mb-5">
+    <div class="card mb-5" style="max-width: 1200px;">
         <div class="card-header px-2 py-1">
             <i class="bi bi-diamond"></i>
             {{ deviceName }}
