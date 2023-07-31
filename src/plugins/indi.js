@@ -96,6 +96,9 @@ const _processMessage = (defXXXVectorDict, message) => {
                 list = store.messages[message['@device']] = [];
             }
 
+            console.log('=================');
+            console.log(message['@message']);
+
             list.push({
                 message: message['@message'] || '',
                 timestamp: message['@timestamp'] || '',
