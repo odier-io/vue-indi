@@ -13,7 +13,7 @@ const useMessageStore = defineStore('messages', {
     actions: {
         getMessagesForDevice(device)
         {
-           return device in this.messages ? '\n'.join(this.messages[device].map((x) => `${x.timestamp}: ${x.message}`)) : '';
+           return device in this.messages ? this.messages[device].map((x) => `${x.timestamp}: ${x.message}`).join('\n') : '';
         },
     },
 });

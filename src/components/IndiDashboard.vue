@@ -112,13 +112,8 @@ const devices = computed(() => {
 
                 <div class="card m-auto" style="width: 1200px;">
                     <div class="card-header px-3 py-2">
-                        <span class="me-auto">
-                            <i class="bi bi-house"></i>
-                            Home
-                        </span>
-                        <button>
-
-                        </button>
+                        <i class="bi bi-house"></i>
+                        Home
                     </div>
                     <div class="card-body px-3 py-5">
 
