@@ -40,7 +40,7 @@ const props = defineProps({
 
                 <li class="nav-item" role="presentation" v-for="(groupName, groupIndex) in Object.keys(deviceInfo)" :key="groupIndex">
 
-                    <button :class="`nav-link ${groupIndex === 0 ? 'active' : ''} px-2 py-1`" type="button" data-bs-toggle="tab" :data-bs-target="`#group_pane_${deviceIndex}_${groupIndex}`" role="tab">
+                    <button :class="`nav-link ${groupIndex === 0 ? 'active' : ''} px-3 py-2`" type="button" data-bs-toggle="tab" :data-bs-target="`#group_pane_${deviceIndex}_${groupIndex}`" role="tab">
                         {{ groupName }}
                     </button>
 
