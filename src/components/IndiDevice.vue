@@ -2,12 +2,7 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import IndiPanel from './IndiGroup.vue';
-
-import useMessageStore from '../stores/messages';
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-const messageStore = useMessageStore();
+import IndiConsole from './IndiConsole.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -27,13 +22,6 @@ const props = defineProps({
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-
-const showMessages = () => {
-
-    console.log(messageStore.getMessagesForDevice(props.deviceName));
-};
-
-/*--------------------------------------------------------------------------------------------------------------------*/
 </script>
 
 <template>
@@ -45,10 +33,7 @@ const showMessages = () => {
             <i class="bi bi-diamond"></i>
             {{ deviceName }}
             [
-            <button class="btn btn-xs btn-secondary" type="button" @click="showMessages()">
-                <i class="bi bi-card-text"></i>
-                logs
-            </button>
+            <indi-console />
             ]
         </div>
         <div class="card-body px-3 py-2">
