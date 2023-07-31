@@ -116,10 +116,16 @@ const devices = computed(() => {
             <div class="row">
                 <div class="col-md-6">
 
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="indi_main_switch /">
-                        <label class="form-check-label" for="indi_main_switch">
-                            Device switch
+
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="D0129CB6" id="DE92759F" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="DE92759F">
+                            Turn on devices
+                        </label>
+
+                        <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="D8FB7C2E">
+                            Turn off devices
                         </label>
                     </div>
 
@@ -158,18 +164,6 @@ const devices = computed(() => {
 </template>
 
 <style scoped>
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-.form-check-input {
-    width: 2em;
-    height: 1em;
-}
-
-.form-check-input::before {
-    width: 2em;
-    height: 2em;
-}
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 #indi_console {
