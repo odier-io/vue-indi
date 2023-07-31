@@ -33,7 +33,7 @@ const props = defineProps({
             <i class="bi bi-diamond"></i>
             {{ deviceName }}
             [
-            <indi-console />
+            <indi-console :device-name="deviceName" />
             ]
         </div>
         <div class="card-body px-3 py-2">

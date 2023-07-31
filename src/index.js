@@ -2,6 +2,9 @@
 
 import { createPinia } from 'pinia';
 
+import 'bootstrap/js/src/tab';
+import 'bootstrap/js/src/modal';
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import indi from './plugins/indi';

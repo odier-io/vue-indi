@@ -9,7 +9,12 @@ const messageStore = useMessageStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-/* TODO */
+const props = defineProps({
+    deviceName: {
+        type: String,
+        default: '',
+    },
+});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
@@ -28,7 +33,7 @@ const messageStore = useMessageStore();
     <teleport to="body">
 
         <div class="modal" tabindex="-1" id="indi_console">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
                     <div class="modal-header">
