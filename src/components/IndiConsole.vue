@@ -71,23 +71,23 @@ watchEffect(() => {
 
     <teleport to="body">
 
-        <div-ref class="modal" tabindex="-1" id="indi_console">
-            <div-ref class="modal-dialog modal-lg">
-                <div-ref class="modal-content">
+        <div class="modal" tabindex="-1" id="indi_console">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
 
-                    <div-ref class="modal-header px-3 py-2">
+                    <div class="modal-header px-3 py-2">
                         <h5 class="modal-title">
                             <i class="bi bi-card-text"></i>
                             {{ deviceName }}
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div-ref>
+                    </div>
 
-                    <div-ref class="modal-body rounded-bottom bg-black px-3 py-2" ref="divRef"></div-ref>
+                    <div class="modal-body rounded-bottom bg-black px-3 py-2" ref="divRef"></div>
 
-                </div-ref>
+                </div>
             </div>
-        </div-ref>
+        </div>
 
     </teleport>
 
