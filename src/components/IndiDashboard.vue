@@ -195,6 +195,12 @@ onMounted(() => messageStore.terminalInstance.open(terminalDiv.value));
                         <h5 class="modal-title">
                             <i class="bi bi-card-text"></i>
                             {{ messageStore.deviceName }}
+                            [
+                                <button class="btn btn-xs btn-secondary" type="button">
+                                    <i class="bi bi-trash"></i>
+                                    empty
+                                </button>
+                            ]
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
