@@ -8,15 +8,25 @@ import 'xterm/css/xterm.css';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const useMessageStore = defineStore('messages', {
     state: () => {
         return {
             messages: {},
             deviceName: '',
-            terminalInstance: new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'}),
         };
     },
     actions: {
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        setup(div)
+        {
+            terminal.open(div);
+        },
+
         /*------------------------------------------------------------------------------------------------------------*/
 
         inject(message)

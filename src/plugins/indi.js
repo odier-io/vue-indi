@@ -22,12 +22,17 @@ const _processMessage = (defXXXVectorDict, message) => {
 
             message['children'].forEach((defXXXX) => {
 
-                const m = /%(\d*)(?:\.(\d+))?f/.exec(defXXXX['@format']);
+                if('@format' in defXXXX)
+                {
+                    const m = /%(\d*)(?:\.(\d+))?f/.exec(defXXXX['@format']);
 
-                defXXXX['@orig'] = defXXXX['$'] = (m && typeof m[2] !== 'undefined') ? defXXXX['$']
-                                                                                            = parseFloat(defXXXX['$']).toFixed(parseInt(m[2])).toString()
-                                                                                     : defXXXX['$']
-                ;
+                    defXXXX['$'] = (m && typeof m[2] !== 'undefined') ? defXXXX['$']
+                                                                            = parseFloat(defXXXX['$']).toFixed(parseInt(m[2])).toString()
+                                                                      : defXXXX['$']
+                    ;
+                }
+
+                defXXXX['@orig'] = defXXXX['$'];
             });
         }
 

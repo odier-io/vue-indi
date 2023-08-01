@@ -40,6 +40,8 @@ const devices = computed(() => {
 
     Object.values(props.defMessages).forEach((message) => {
 
+        /*------------------------------------------------------------------------------------------------------------*/
+
         if(!('@group' in message) || !message['@group'])
         {
             message['@group'] = 'Main Control';
@@ -79,7 +81,7 @@ const devices = computed(() => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-onMounted(() => messageStore.terminalInstance.open(terminalDiv.value));
+onMounted(() => messageStore.setup(terminalDiv.value));
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
