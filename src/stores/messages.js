@@ -72,11 +72,11 @@ const useMessageStore = defineStore('messages', {
 
         updateMessages()
         {
-            this.terminalInstance.clear();
+            terminal.clear();
 
             if(this.deviceName in this.messages)
             {
-                this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => this.terminalInstance.writeln(line));
+                this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => terminal.writeln(line));
             }
         },
 
