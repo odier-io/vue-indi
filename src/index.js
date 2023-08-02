@@ -12,6 +12,8 @@ import sock from './plugins/sock';
 
 import IndiDashboard from './components/IndiDashboard.vue';
 
+import useMessageStore from './stores/messages';
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const setup = (app) => {
@@ -27,6 +29,7 @@ const setup = (app) => {
 export {
     setup,
     IndiDashboard,
+    useMessageStore,
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
