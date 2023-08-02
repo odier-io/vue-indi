@@ -10,9 +10,10 @@ import 'bootstrap/js/src/modal';
 import indi from './plugins/indi';
 import sock from './plugins/sock';
 
-import IndiDashboard from './components/IndiDashboard.vue';
-
 import useMessageStore from './stores/messages';
+
+import IndiDashboard from './components/IndiDashboard.vue';
+import IndiDriver from './components/IndiDriver.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -28,8 +29,9 @@ const setup = (app) => {
 
 export {
     setup,
-    IndiDashboard,
     useMessageStore,
+    IndiDashboard,
+    IndiDriver,
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
