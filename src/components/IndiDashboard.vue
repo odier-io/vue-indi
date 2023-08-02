@@ -184,7 +184,7 @@ onMounted(() => messageStore.setup(terminalDiv.value));
     <teleport to="body">
 
         <div class="modal" tabindex="-1" id="indi_console">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
 
                     <div class="modal-header px-3 py-2">
