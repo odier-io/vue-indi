@@ -214,7 +214,7 @@ onMounted(() => messageStore.setup(terminalDiv.value));
 
 .tab-pane,
 .tab-content {
-    display: flex;
+    display: flex !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
