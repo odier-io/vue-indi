@@ -120,9 +120,9 @@ onMounted(() => messageStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <div class="tab-pane fade show active" id="indi_home_pane" tabindex="0" role="tabpanel">
+            <div class="tab-pane fade my-auto show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
-                <div class="card m-auto" style="width: 1200px;">
+                <div class="card mx-auto mb-3" style="width: 1200px;">
                     <div class="card-header px-3 py-2">
                         <i class="bi bi-house"></i>
                         Home
@@ -163,7 +163,7 @@ onMounted(() => messageStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <div class="tab-pane fade xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
+            <div class="tab-pane fade my-auto xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
                 <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
 
@@ -212,9 +212,9 @@ onMounted(() => messageStore.setup(terminalDiv.value));
 <style scoped>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-.H-100 {
+.tab-pane,
+.tab-content {
     display: flex;
-    min-height: calc(100vh - 25rem);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
