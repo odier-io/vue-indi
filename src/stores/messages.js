@@ -17,7 +17,7 @@ const useMessageStore = defineStore('messages', {
         return {
             messages: {},
             deviceName: '',
-            offOnSwitch: false,
+            offOnSwitch: 'off',
         };
     },
     actions: {
