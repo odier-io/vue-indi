@@ -40,9 +40,9 @@ const useIndiStore = defineStore('indi', {
 
             this.defXXXVectors.forEach((defXXXVector) => {
 
-                if(defXXXVector['<>'] === 'newTextVector'
+                if(defXXXVector['<>'] === 'defTextVector'
                    ||
-                   defXXXVector['<>'] === 'newNumberVector'
+                   defXXXVector['<>'] === 'defNumberVector'
 
                 ) defXXXVector['children'].forEach((defXXXX) => {
 
