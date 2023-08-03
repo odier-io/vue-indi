@@ -29,7 +29,7 @@ const useIndiStore = defineStore('indi', {
 
         defMessages()
         {
-            return Object.values(this.defMessages);
+            return Object.values(this.defMessageDict);
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
