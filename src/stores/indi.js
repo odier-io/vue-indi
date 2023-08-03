@@ -38,7 +38,7 @@ const useIndiStore = defineStore('indi', {
         {
             const result = {};
 
-            this.defXXXVectorDict.forEach((defXXXVector) => {
+            this.defXXXVectors.forEach((defXXXVector) => {
 
                 if(defXXXVector['<>'] === 'newTextVector'
                    ||
