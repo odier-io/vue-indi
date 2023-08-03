@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import { defineStore } from 'pinia';
@@ -23,6 +24,9 @@ const useIndiStore = defineStore('indi', {
             currentDeviceName: '---',
         };
     },
+    getters: {
+
+    },
     actions: {
         /*------------------------------------------------------------------------------------------------------------*/
 
@@ -40,11 +44,6 @@ const useIndiStore = defineStore('indi', {
             return this;
         },
 
-        getDrivers()
-        {
-            return this.drivers;
-        },
-
         /*------------------------------------------------------------------------------------------------------------*/
 
         setOffOnSwitch(offOnSwitch)
@@ -52,11 +51,6 @@ const useIndiStore = defineStore('indi', {
             this.offOnSwitch = offOnSwitch || false;
 
             return this;
-        },
-
-        getOffOnSwitch()
-        {
-            return this.offOnSwitch;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -68,41 +62,13 @@ const useIndiStore = defineStore('indi', {
             return this;
         },
 
-        getCurrentDeviceName()
-        {
-            return this.currentDeviceName;
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        injectMessage(message)
-        {
-            let list;
-
-            if(message['@device'] in this.messages)
-            {
-                list = this.messages[message['@device']] ; //;
-            }
-            else
-            {
-                list = this.messages[message['@device']] = [];
-            }
-
-            list.unshift({
-                timestamp: message['@timestamp'] || '',
-                message  : message['@message'  ] || '',
-            });
-
-            this.updateTerminal();
-        },
-
         /*------------------------------------------------------------------------------------------------------------*/
 
         clearMessages()
         {
-            this.messages[this.currentDeviceName].length = 0;
+            terminal.clear();
 
-            this.updateTerminal();
+            this.messages[this.currentDeviceName].length = 0;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/

@@ -12,8 +12,8 @@ import sock from './plugins/sock';
 
 import useIndiStore from './stores/indi';
 
-import IndiDashboard from './components/IndiDashboard.vue';
 import IndiDriver from './components/IndiDriver.vue';
+import IndiDashboard from './components/IndiDashboard.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -30,8 +30,8 @@ const setup = (app) => {
 export {
     setup,
     useIndiStore,
-    IndiDashboard,
     IndiDriver,
+    IndiDashboard,
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/

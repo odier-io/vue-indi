@@ -90,7 +90,23 @@ const _processMessage = (message) => {
 
         else if(message['<>'] === 'message')
         {
-            indiStore.injectMessage(message);
+            let list;
+
+            if(message['@device'] in indiStore.messages)
+            {
+                list = indiStore.messages[message['@device']] ; //;
+            }
+            else
+            {
+                list = indiStore.messages[message['@device']] = [];
+            }
+
+            list.unshift({
+                timestamp: message['@timestamp'] || '',
+                message  : message['@message'  ] || '',
+            });
+
+            indiStore.updateTerminal();
         }
 
         /*------------------------------------------------------------------------------------------------------------*/
