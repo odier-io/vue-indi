@@ -21,15 +21,15 @@ const useIndiStore = defineStore('indi', {
             currentDeviceName: '---',
             /**/
             messageDict: {},
-            defMessageDict: {},
+            defXXXVectorDict: {},
         };
     },
     getters: {
         /*------------------------------------------------------------------------------------------------------------*/
 
-        defMessages()
+        defXXXVectors()
         {
-            return Object.values(this.defMessageDict);
+            return Object.values(this.defXXXVectorDict);
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -38,9 +38,13 @@ const useIndiStore = defineStore('indi', {
         {
             const result = {};
 
-            this.defMessages.forEach((defMessage) => {
+            this.defXXXVectorDict.forEach((defMessage) => {
 
-                defMessage['children'].forEach((defXXXX) => {
+                if(defMessage['<>'] === 'newTextVector'
+                   ||
+                   defMessage['<>'] === 'newNumberVector'
+
+                ) defMessage['children'].forEach((defXXXX) => {
 
                     result[`${defMessage['@device']}:${defMessage['@name']}:${defXXXX['@name']}`] = defXXXX['$'];
                 });

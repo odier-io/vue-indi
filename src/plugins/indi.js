@@ -20,7 +20,7 @@ const _processMessage = (message) => {
 
         /**/ if(message['<>'].startsWith('def') && '@device' in message && '@name' in message && 'children' in message)
         {
-            indiStore.defMessageDict[_buildKey(message)] = message;
+            indiStore.defXXXVectorDict[_buildKey(message)] = message;
 
             message['children'].forEach((defXXXX) => {
 
@@ -44,7 +44,7 @@ const _processMessage = (message) => {
 
         else if(message['<>'].startsWith('set') && '@device' in message && '@name' in message && 'children' in message)
         {
-            const vector = indiStore.defMessageDict[_buildKey(message)];
+            const vector = indiStore.defXXXVectorDict[_buildKey(message)];
 
             if(!vector)
             {
@@ -81,7 +81,7 @@ const _processMessage = (message) => {
 
         else if(message['<>'] === 'delProperty' && '@device' in message && '@name' in message)
         {
-            delete indiStore.defMessageDict[_buildKey(message)];
+            delete indiStore.defXXXVectorDict[_buildKey(message)];
         }
 
         /*------------------------------------------------------------------------------------------------------------*/

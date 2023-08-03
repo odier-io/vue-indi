@@ -23,40 +23,40 @@ const devices = computed(() => {
 
     const result = {};
 
-    indiStore.defMessages.forEach((message) => {
+    indiStore.defXXXVectors.forEach((defXXXVector) => {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        if(!('@group' in message) || !message['@group'])
+        if(!('@group' in defXXXVector) || !defXXXVector['@group'])
         {
-            message['@group'] = 'Main Control';
+            defXXXVector['@group'] = 'Main Control';
         }
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         let device;
 
-        if(message['@device'] in result) {
-            device = result[message['@device']] ; //;
+        if(defXXXVector['@device'] in result) {
+            device = result[defXXXVector['@device']] ; //;
         }
         else {
-            device = result[message['@device']] = {};
+            device = result[defXXXVector['@device']] = {};
         }
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         let group;
 
-        if(message['@group'] in device) {
-            group = device[message['@group']] ; //;
+        if(defXXXVector['@group'] in device) {
+            group = device[defXXXVector['@group']] ; //;
         }
         else {
-            group = device[message['@group']] = {};
+            group = device[defXXXVector['@group']] = {};
         }
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        group[message['@name']] = message;
+        group[defXXXVector['@name']] = defXXXVector;
 
         /*------------------------------------------------------------------------------------------------------------*/
     });
