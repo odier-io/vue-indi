@@ -23,7 +23,7 @@ const devices = computed(() => {
 
     const result = {};
 
-    Object.values(indiStore.defMessages).forEach((message) => {
+    indiStore.defMessages.forEach((message) => {
 
         /*------------------------------------------------------------------------------------------------------------*/
 

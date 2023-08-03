@@ -21,15 +21,24 @@ const useIndiStore = defineStore('indi', {
             currentDeviceName: '---',
             /**/
             messages: {},
-            defMessages: {},
+            defMessageDict: {},
         };
     },
     getters: {
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        defMessages()
+        {
+            return Object.values(this.defMessages);
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
         variables()
         {
             const result = {};
 
-            Object.values(this.defMessages).forEach((defMessage) => {
+            this.defMessages.forEach((defMessage) => {
 
                 defMessage['children'].forEach((defXXXX) => {
 
@@ -39,6 +48,8 @@ const useIndiStore = defineStore('indi', {
 
             return result;
         }
+
+        /*------------------------------------------------------------------------------------------------------------*/
     },
     actions: {
         /*------------------------------------------------------------------------------------------------------------*/
