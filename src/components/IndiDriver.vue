@@ -29,9 +29,9 @@ const indiStore = useIndiStore();
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(value, name) in indiStore.drivers" :key="name">
-                        <td>${<i>{{name}}</i>}</td>
-                        <td>{{value}}</td>
+                    <tr v-for="driver in indiStore.drivers">
+                        <td>${<i>{{driver.name}}</i>}</td>
+                        <td>{{driver.value}}</td>
                     </tr>
                 </tbody>
             </table>
