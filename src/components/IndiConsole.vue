@@ -5,11 +5,11 @@ import Modal from 'bootstrap/js/src/modal';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import useMessageStore from '../stores/messages';
+import useIndiStore from '../stores/indi';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const messageStore = useMessageStore();
+const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -24,7 +24,7 @@ const props = defineProps({
 
 const openModal = () => {
 
-    messageStore.selectDevice(props.deviceName);
+    indiStore.setCurrentDeviceName(props.deviceName).updateTerminal();
 
     new Modal(document.getElementById('indi_console')).show();
 };

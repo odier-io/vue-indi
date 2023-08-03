@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import useMessageStore from '../stores/messages';
+import useIndiStore from '../stores/indi';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -24,10 +24,10 @@ const _processMessage = (defXXXVectorDict, message) => {
 
                 if('@format' in defXXXX)
                 {
-                    const m = /%(\d*)(?:\.(\d+))?f/.exec(defXXXX['@format']);
+                    const m = /%\d*(?:\.(\d+))?f/.exec(defXXXX['@format'].toString());
 
-                    defXXXX['$'] = (m && typeof m[2] !== 'undefined') ? defXXXX['$']
-                                                                            = parseFloat(defXXXX['$']).toFixed(parseInt(m[2])).toString()
+                    defXXXX['$'] = (m && typeof m[1] !== 'undefined') ? defXXXX['$']
+                                                                            = parseFloat(defXXXX['$'].toString()).toFixed(parseInt(m[1])).toString()
                                                                       : defXXXX['$']
                     ;
                 }
@@ -88,7 +88,7 @@ const _processMessage = (defXXXVectorDict, message) => {
 
         else if(message['<>'] === 'message')
         {
-            useMessageStore().inject(message);
+            useIndiStore().injectMessage(message);
         }
 
         /*------------------------------------------------------------------------------------------------------------*/

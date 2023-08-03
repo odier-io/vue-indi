@@ -8,7 +8,7 @@ import IndiLightVector from './controls/IndiLightVector.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const props = defineProps({
+defineProps({
     groupInfo: {
         type: Object,
         default: {},

@@ -45,33 +45,23 @@ const _update_func = (endpoint, token) => {
         _client.on('connect', () => {
 
             _connected = true;
-
-            if(_connectionCallback)
-            {
+            if(_connectionCallback) {
                 _connectionCallback(true);
             }
         });
-
-        /*------------------------------------------------------------------------------------------------------------*/
 
         _client.on('reconnect', () => {
 
             _connected = true;
-
-            if(_connectionCallback)
-            {
+            if(_connectionCallback) {
                 _connectionCallback(true);
             }
         });
 
-        /*------------------------------------------------------------------------------------------------------------*/
-
         _client.on('disconnect', () => {
 
             _connected = false;
-
-            if(_connectionCallback)
-            {
+            if(_connectionCallback) {
                 _connectionCallback(false);
             }
         });

@@ -6,7 +6,7 @@ import IndiConsole from './IndiConsole.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const props = defineProps({
+defineProps({
     deviceName: {
         type: String,
         default: '',
@@ -44,7 +44,7 @@ const props = defineProps({
 
                 <li class="nav-item" role="presentation" v-for="(groupName, groupIndex) in Object.keys(deviceInfo)" :key="groupIndex">
 
-                    <button :class="`nav-link ${groupIndex === 0 ? 'active' : ''} px-3 py-2`" type="button" data-bs-toggle="tab" :data-bs-target="`#group_pane_${deviceIndex}_${groupIndex}`" role="tab">
+                    <button :class="`nav-link ${groupIndex === 0 ? 'active' : ''} px-3 py-2`" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_group_pane_${deviceIndex}_${groupIndex}`" role="tab">
                         {{ groupName }}
                     </button>
 
@@ -56,7 +56,7 @@ const props = defineProps({
 
             <div class="tab-content">
 
-                <div :class="`tab-pane fade ${groupIndex === 0 ? 'show active' : ''}`" :id="`group_pane_${deviceIndex}_${groupIndex}`" tabindex="0" role="tabpanel" v-for="(groupInfo, groupName, groupIndex) in deviceInfo" :key="groupName">
+                <div :class="`tab-pane fade ${groupIndex === 0 ? 'show active' : ''}`" :id="`indi_group_pane_${deviceIndex}_${groupIndex}`" tabindex="0" role="tabpanel" v-for="(groupInfo, groupName, groupIndex) in deviceInfo" :key="groupName">
 
                     <indi-panel :group-info="groupInfo" />
 

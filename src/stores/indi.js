@@ -12,12 +12,14 @@ const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, couri
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const useMessageStore = defineStore('messages', {
+const useIndiStore = defineStore('indi', {
     state: () => {
         return {
-            messages: {},
-            deviceName: '',
+            drivers: [],
             offOnSwitch: 'off',
+            /**/
+            messages: {},
+            currentDeviceName: '---',
         };
     },
     actions: {
@@ -30,7 +32,49 @@ const useMessageStore = defineStore('messages', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        inject(message)
+        setDrivers(drivers)
+        {
+            this.drivers = drivers || [];
+
+            return this;
+        },
+
+        getDrivers()
+        {
+            return this.drivers;
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        setOffOnSwitch(offOnSwitch)
+        {
+            this.offOnSwitch = offOnSwitch || false;
+
+            return this;
+        },
+
+        getOffOnSwitch()
+        {
+            return this.offOnSwitch;
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        setCurrentDeviceName(currentDeviceName)
+        {
+            this.currentDeviceName = currentDeviceName || '';
+
+            return this;
+        },
+
+        getCurrentDeviceName()
+        {
+            return this.currentDeviceName;
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        injectMessage(message)
         {
             let list;
 
@@ -44,40 +88,31 @@ const useMessageStore = defineStore('messages', {
             }
 
             list.unshift({
-                message: message['@message'] || '',
                 timestamp: message['@timestamp'] || '',
+                message  : message['@message'  ] || '',
             });
 
-            this.updateMessages();
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        selectDevice(deviceName)
-        {
-            this.deviceName = deviceName || '';
-
-            this.updateMessages();
+            this.updateTerminal();
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         clearMessages()
         {
-            this.messages[this.deviceName].length = 0;
+            this.messages[this.currentDeviceName].length = 0;
 
-            this.updateMessages();
+            this.updateTerminal();
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        updateMessages()
+        updateTerminal()
         {
             terminal.clear();
 
-            if(this.deviceName in this.messages)
+            if(this.currentDeviceName in this.messages)
             {
-                this.messages[this.deviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => terminal.writeln(line));
+                this.messages[this.currentDeviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => terminal.writeln(line));
             }
         },
 
@@ -87,6 +122,6 @@ const useMessageStore = defineStore('messages', {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-export default useMessageStore;
+export default useIndiStore;
 
 /*--------------------------------------------------------------------------------------------------------------------*/

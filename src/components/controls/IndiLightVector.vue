@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const props = defineProps({
+defineProps({
     defLightVector: {
         type: Object,
         default: {},
