@@ -16,7 +16,7 @@ const indiStore = useIndiStore();
 
     <div class="card mx-auto mb-3">
         <div class="card-header px-3 py-2">
-            <i class="bi bi-cpu"></i>
+            <i class="bi bi-braces"></i>
             Variables
         </div>
         <div class="card-body px-3 py-2">
