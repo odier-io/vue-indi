@@ -19,6 +19,7 @@ const useIndiStore = defineStore('indi', {
             offOnSwitch: 'off',
             /**/
             messages: {},
+            defMessages: {},
             currentDeviceName: '---',
         };
     },
