@@ -13,6 +13,7 @@ import sock from './plugins/sock';
 import useIndiStore from './stores/indi';
 
 import IndiDriver from './components/IndiDriver.vue';
+import IndiVariable from './components/IndiVariable.vue';
 import IndiDashboard from './components/IndiDashboard.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -31,6 +32,7 @@ export {
     setup,
     useIndiStore,
     IndiDriver,
+    IndiVariable,
     IndiDashboard,
 };
 
