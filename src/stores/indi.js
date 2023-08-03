@@ -18,14 +18,27 @@ const useIndiStore = defineStore('indi', {
         return {
             drivers: [],
             offOnSwitch: 'off',
+            currentDeviceName: '---',
             /**/
             messages: {},
             defMessages: {},
-            currentDeviceName: '---',
         };
     },
     getters: {
+        variables()
+        {
+            const result = {};
 
+            Object.entries(this.defMessages).forEach(([key, defMessage]) => {
+
+                defMessage['children'].forEach((defXXXX) => {
+
+                    result[`${key}::${defXXXX['@name']}`] = defXXXX['$'];
+                });
+            });
+
+            return result;
+        }
     },
     actions: {
         /*------------------------------------------------------------------------------------------------------------*/
