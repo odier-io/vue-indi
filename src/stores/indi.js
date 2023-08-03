@@ -38,15 +38,15 @@ const useIndiStore = defineStore('indi', {
         {
             const result = {};
 
-            this.defXXXVectorDict.forEach((defMessage) => {
+            this.defXXXVectorDict.forEach((defXXXVector) => {
 
-                if(defMessage['<>'] === 'newTextVector'
+                if(defXXXVector['<>'] === 'newTextVector'
                    ||
-                   defMessage['<>'] === 'newNumberVector'
+                   defXXXVector['<>'] === 'newNumberVector'
 
-                ) defMessage['children'].forEach((defXXXX) => {
+                ) defXXXVector['children'].forEach((defXXXX) => {
 
-                    result[`${defMessage['@device']}:${defMessage['@name']}:${defXXXX['@name']}`] = defXXXX['$'];
+                    result[`${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXXX['@name']}`] = defXXXX['$'];
                 });
             });
 
