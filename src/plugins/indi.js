@@ -92,13 +92,13 @@ const _processMessage = (message) => {
         {
             let list;
 
-            if(message['@device'] in indiStore.messages)
+            if(message['@device'] in indiStore.messageDict)
             {
-                list = indiStore.messages[message['@device']] ; //;
+                list = indiStore.messageDict[message['@device']] ; //;
             }
             else
             {
-                list = indiStore.messages[message['@device']] = [];
+                list = indiStore.messageDict[message['@device']] = [];
             }
 
             list.unshift({

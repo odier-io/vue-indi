@@ -20,7 +20,7 @@ const useIndiStore = defineStore('indi', {
             offOnSwitch: 'off',
             currentDeviceName: '---',
             /**/
-            messages: {},
+            messageDict: {},
             defMessageDict: {},
         };
     },
@@ -92,7 +92,7 @@ const useIndiStore = defineStore('indi', {
         {
             terminal.clear();
 
-            this.messages[this.currentDeviceName].length = 0;
+            this.messageDict[this.currentDeviceName].length = 0;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -101,9 +101,9 @@ const useIndiStore = defineStore('indi', {
         {
             terminal.clear();
 
-            if(this.currentDeviceName in this.messages)
+            if(this.currentDeviceName in this.messageDict)
             {
-                this.messages[this.currentDeviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => terminal.writeln(line));
+                this.messageDict[this.currentDeviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => terminal.writeln(line));
             }
         },
 
