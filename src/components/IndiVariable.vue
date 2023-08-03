@@ -31,7 +31,7 @@ const indiStore = useIndiStore();
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(value, name) in Object.entries(indiStore.variables)" :key="name">
+                        <tr v-for="(value, name) in indiStore.variables" :key="name">
                             <td>${<i>{{name}}</i>}</td>
                             <td>{{value}}</td>
                         </tr>
