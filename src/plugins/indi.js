@@ -90,7 +90,10 @@ const _processMessage = (message) => {
 
         else if(message['<>'] === 'drivers' && 'children' in message)
         {
-            indiStore.drivers = message['children'].map((defDriver) => defDriver['@name']);
+            indiStore.drivers = message['children'].map((defDriver) => ({
+                name: defDriver['@name'],
+                driver: defDriver['@driver'],
+            }));
         }
 
         /*------------------------------------------------------------------------------------------------------------*/
