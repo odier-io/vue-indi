@@ -29,11 +29,11 @@ const useIndiStore = defineStore('indi', {
         {
             const result = {};
 
-            Object.entries(this.defMessages).forEach(([key, defMessage]) => {
+            Object.values(this.defMessages).forEach((defMessage) => {
 
                 defMessage['children'].forEach((defXXXX) => {
 
-                    result[`${key}::${defXXXX['@name']}`] = defXXXX['$'];
+                    result[`${defMessage['@device']}:${defMessage['@name']}:${defXXXX['@name']}`] = defXXXX['$'];
                 });
             });
 
