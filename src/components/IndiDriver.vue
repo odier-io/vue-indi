@@ -52,7 +52,7 @@ const indiStore = useIndiStore();
 </template>
 
 
-<style scoped>
+<style>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 @import url('vue-select/dist/vue-select.css');
