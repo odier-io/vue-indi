@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import vSelect from 'vue-select';
+import vueSelect from 'vue-select';
 
 import 'vue-select/dist/vue-select.css';
 
@@ -30,18 +30,18 @@ const indiStore = useIndiStore();
             <table class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Device</th>
-                        <th>Driver</th>
+                        <th class="w-50">Device</th>
+                        <th class="w-50">Driver</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>CCD camera</td>
-                        <td><v-select :options="indiStore.drivers"></v-select></td>
+                        <td><vue-select :options="indiStore.drivers"></vue-select></td>
                     </tr>
                     <tr>
                         <td>Guiding camera</td>
-                        <td><v-select :options="indiStore.drivers"></v-select></td>
+                        <td><vue-select :options="indiStore.drivers"></vue-select></td>
                     </tr>
                 </tbody>
             </table>
@@ -52,3 +52,13 @@ const indiStore = useIndiStore();
     <!-- *********************************************************************************************************** -->
 
 </template>
+
+
+<style scoped>
+
+.vs__dropdown-toggle {
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+</style>
