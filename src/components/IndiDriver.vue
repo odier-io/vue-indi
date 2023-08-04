@@ -39,6 +39,10 @@ const indiStore = useIndiStore();
                         <td>CCD camera</td>
                         <td><v-select :options="indiStore.drivers"></v-select></td>
                     </tr>
+                    <tr>
+                        <td>Guiding camera</td>
+                        <td><v-select :options="indiStore.drivers"></v-select></td>
+                    </tr>
                 </tbody>
             </table>
 
