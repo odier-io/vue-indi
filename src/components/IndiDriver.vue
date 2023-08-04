@@ -1,6 +1,12 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import vSelect from 'vue-select';
+
+import 'vue-select/dist/vue-select.css';
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 import useIndiStore from '../stores/indi';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -24,14 +30,14 @@ const indiStore = useIndiStore();
             <table class="table table-sm table-striped">
                 <thead>
                     <tr>
+                        <th>Device</th>
                         <th>Driver</th>
-                        <th>Type</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="driver in indiStore.drivers">
-                        <td>{{driver}}</td>
-                        <td></td>
+                    <tr>
+                        <td>CCD camera</td>
+                        <td><v-select :options="indiStore.drivers"></v-select></td>
                     </tr>
                 </tbody>
             </table>
