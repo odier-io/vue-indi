@@ -24,14 +24,14 @@ const indiStore = useIndiStore();
             <table class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Variable</th>
-                        <th>Value</th>
+                        <th>Driver</th>
+                        <th>Type</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="driver in indiStore.drivers">
-                        <td>${<i>{{driver.name}}</i>}</td>
-                        <td>{{driver.value}}</td>
+                        <td>{{driver}}</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
