@@ -59,13 +59,11 @@ const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-.vs__selected {
-    color: var(--bs-body-color);
-}
-
 .vs__clear,
+.vs__selected,
 .vs__open-indicator {
     fill: var(--bs-body-color);
+    color: var(--bs-body-color);
 }
 
 .vs__dropdown-toggle {
