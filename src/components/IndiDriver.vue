@@ -72,7 +72,5 @@ const indiStore = useIndiStore();
     border: var(--bs-border-width) solid var(--bs-border-color);
 }
 
-select option {
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 </style>
