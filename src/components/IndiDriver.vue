@@ -3,8 +3,6 @@
 
 import vueSelect from 'vue-select';
 
-import 'vue-select/dist/vue-select.css';
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import useIndiStore from '../stores/indi';
@@ -55,10 +53,16 @@ const indiStore = useIndiStore();
 
 
 <style scoped>
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+@import url('vue-select/dist/vue-select.css');
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 .vs__dropdown-toggle {
     background-color: var(--bs-body-bg);
     border: var(--bs-border-width) solid var(--bs-border-color);
 }
 
+/*--------------------------------------------------------------------------------------------------------------------*/
 </style>
