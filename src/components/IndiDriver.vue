@@ -60,6 +60,7 @@ const indiStore = useIndiStore();
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 .vs__dropdown-toggle {
+    color: var(--bs-body-color);
     background-color: var(--bs-body-bg);
     border: var(--bs-border-width) solid var(--bs-border-color);
 }
