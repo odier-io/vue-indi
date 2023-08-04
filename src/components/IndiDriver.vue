@@ -66,10 +66,13 @@ const indiStore = useIndiStore();
     color: var(--bs-body-color);
 }
 
+.vs__dropdown-menu,
 .vs__dropdown-toggle {
     background-color: var(--bs-body-bg);
     border: var(--bs-border-width) solid var(--bs-border-color);
 }
+
+select option {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </style>
