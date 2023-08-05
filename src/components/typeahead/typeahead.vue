@@ -31,7 +31,7 @@ const updateValue = (e) => {
 
     <!-- *********************************************************************************************************** -->
 
-    <div class="position-relative" v-bind="$attrs">
+    <div class="dropdown" v-bind="$attrs">
 
         <input type="text" :value="modelValue" @input="updateValue" />
 
