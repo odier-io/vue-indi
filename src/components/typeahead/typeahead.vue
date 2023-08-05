@@ -3,6 +3,8 @@
 
 import { defineProps, defineEmits } from 'vue';
 
+import 'bootstrap/js/src/dropdown';
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const emit = defineEmits(['update:modelValue']);
