@@ -33,11 +33,7 @@ const updateValue = (e) => {
 
     <div v-bind="$attrs">
 
-        <div class="d-flex">
-
-            <input type="text" :value="modelValue" @input="updateValue" />
-
-        </div>
+        <input type="text" :value="modelValue" @input="updateValue" />
 
     </div>
 
@@ -51,6 +47,7 @@ const updateValue = (e) => {
 input {
     border: none;
     background-color: transparent;
+    width: 100%;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
