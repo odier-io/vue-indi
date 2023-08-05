@@ -33,7 +33,7 @@ const updateValue = (e) => {
 
     <div class="dropdown" v-bind="$attrs">
 
-        <input type="text" :value="modelValue" @input="updateValue" />
+        <input type="text" :value="modelValue" @input="updateValue" data-bs-toggle="dropdown" />
 
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
