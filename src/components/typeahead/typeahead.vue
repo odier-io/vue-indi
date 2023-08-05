@@ -38,11 +38,13 @@ const updateValue = (e) => {
         <input type="text" :value="modelValue" @input="updateValue" data-bs-toggle="dropdown" />
 
         <ul class="dropdown-menu">
-            <li v-for="option in options" v-if="option.includes(modelValue)">
-                <a class="dropdown-item" href="#">
-                    {{option}}
-                </a>
-            </li>
+            <template v-for="option in options">
+                <li v-if="option.includes(modelValue)">
+                    <a class="dropdown-item" href="#">
+                        {{option}}
+                    </a>
+                </li>
+            </template>
         </ul>
 
     </div>
