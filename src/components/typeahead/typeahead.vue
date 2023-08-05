@@ -33,7 +33,11 @@ const updateValue = (e) => {
 
     <div v-bind="$attrs">
 
-        <input type="text" :value="modelValue" @input="updateValue" />
+        <div class="d-flex">
+
+            <input type="text" :value="modelValue" @input="updateValue" />
+
+        </div>
 
     </div>
 
