@@ -22,12 +22,14 @@ defineProps({
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const state = reactive({
-
+    toto: ''
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const updateValue = (e) => {
+
+    state.toto = e.target.value;
 
     emit('update:modelValue', e.target.value);
 };
@@ -45,7 +47,7 @@ const updateValue = (e) => {
 
         <ul class="dropdown-menu">
             <template v-for="option in options">
-                <li v-if="!modelValue || modelValue.includes(option)">
+                <li v-if="!state.toto || state.toto.includes(option)">
                     <a class="dropdown-item" href="#">
                         {{option}}
                     </a>
