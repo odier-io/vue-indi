@@ -32,7 +32,7 @@ const indiStore = useIndiStore();
                 </thead>
                 <tbody>
                     <tr>
-                        <td>CCD camera</td>
+                        <td><input class="form-select form-select-sm" type="text" /></td>
                         <td><typeahead class="form-select form-select-sm" :options="indiStore.drivers"></typeahead></td>
                     </tr>
                     <tr>
