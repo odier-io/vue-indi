@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { defineProps, defineEmits } from 'vue';
+import { reactive, defineProps, defineEmits } from 'vue';
 
 import 'bootstrap/js/src/dropdown';
 
@@ -17,6 +17,12 @@ defineProps({
         type: Array,
         default: [],
     },
+});
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const state = reactive({
+
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -39,7 +45,7 @@ const updateValue = (e) => {
 
         <ul class="dropdown-menu">
             <template v-for="option in options">
-                <li v-if="!modelValue || option.includes(modelValue)">
+                <li>
                     <a class="dropdown-item" href="#">
                         {{option}}
                     </a>
