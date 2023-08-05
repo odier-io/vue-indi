@@ -47,6 +47,7 @@ const updateValue = (e) => {
 input {
     border: none;
     background-color: transparent;
+    outline: none;
     width: 100%;
 }
 
