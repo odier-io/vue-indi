@@ -1,9 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import vueSelect from 'vue-select';
-
-/*--------------------------------------------------------------------------------------------------------------------*/
+import typeahead from '../components/typeahead/typeahead.vue';
 
 import useIndiStore from '../stores/indi';
 
@@ -35,11 +33,11 @@ const indiStore = useIndiStore();
                 <tbody>
                     <tr>
                         <td>CCD camera</td>
-                        <td><vue-select :options="indiStore.drivers"></vue-select></td>
+                        <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
                     </tr>
                     <tr>
                         <td>Guiding camera</td>
-                        <td><vue-select :options="indiStore.drivers"></vue-select></td>
+                        <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
                     </tr>
                 </tbody>
             </table>
@@ -50,27 +48,3 @@ const indiStore = useIndiStore();
     <!-- *********************************************************************************************************** -->
 
 </template>
-
-
-<style>
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-@import url('vue-select/dist/vue-select.css');
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-.vs__clear,
-.vs__selected,
-.vs__open-indicator {
-    fill: var(--bs-body-color);
-    color: var(--bs-body-color);
-}
-
-.vs__dropdown-menu,
-.vs__dropdown-toggle {
-    background-color: var(--bs-body-bg);
-    border: var(--bs-border-width) solid var(--bs-border-color);
-}
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-</style>
