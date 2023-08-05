@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import SimpleTypeahead from 'vue3-simple-typeahead';
+import vueSelect from 'vue-select';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -35,11 +35,11 @@ const indiStore = useIndiStore();
                 <tbody>
                     <tr>
                         <td>CCD camera</td>
-                        <td><simple-typeahead :items="indiStore.drivers"></simple-typeahead></td>
+                        <td><vue-select :options="indiStore.drivers"></vue-select></td>
                     </tr>
                     <tr>
                         <td>Guiding camera</td>
-                        <td><simple-typeahead :items="indiStore.drivers"></simple-typeahead></td>
+                        <td><vue-select :options="indiStore.drivers"></vue-select></td>
                     </tr>
                 </tbody>
             </table>
@@ -55,7 +55,22 @@ const indiStore = useIndiStore();
 <style>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-@import url('vue3-simple-typeahead/dist/vue3-simple-typeahead.css');
+@import url('vue-select/dist/vue-select.css');
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.vs__clear,
+.vs__selected,
+.vs__open-indicator {
+    fill: var(--bs-body-color);
+    color: var(--bs-body-color);
+}
+
+.vs__dropdown-menu,
+.vs__dropdown-toggle {
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+}
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </style>

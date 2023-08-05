@@ -5,7 +5,7 @@ import { ref, computed, onMounted } from 'vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import IndiDevice from './IndiDevice.vue';
+import IndiDevice from './dashboard/IndiDevice.vue';
 
 import useIndiStore from '../stores/indi';
 
