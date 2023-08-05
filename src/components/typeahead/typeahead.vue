@@ -45,7 +45,7 @@ const updateValue = (e) => {
 
         <ul class="dropdown-menu">
             <template v-for="option in options">
-                <li>
+                <li v-if="!modelValue || modelValue.includes(option)">
                     <a class="dropdown-item" href="#">
                         {{option}}
                     </a>
