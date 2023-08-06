@@ -36,8 +36,12 @@ const indiStore = useIndiStore();
                         <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
                     </tr>
                     <tr>
-                        <td>Guiding camera</td>
-                        <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
+                        <td><input class="form-select" type="text" /></td>
+                        <td><typeahead class="form-control" :options="indiStore.drivers"></typeahead></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-select form-select-lg" type="text" /></td>
+                        <td><typeahead class="form-control form-control-lg" :options="indiStore.drivers"></typeahead></td>
                     </tr>
                 </tbody>
             </table>
