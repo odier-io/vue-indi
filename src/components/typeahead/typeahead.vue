@@ -1,7 +1,7 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { reactive, defineProps, defineEmits } from 'vue';
+import { ref, watch, computed, defineProps, defineEmits } from 'vue';
 
 import 'bootstrap/js/src/dropdown';
 
@@ -11,8 +11,11 @@ const emit = defineEmits(['update:modelValue']);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-defineProps({
-    modelValue: String,
+const props = defineProps({
+    modelValue: {
+        type: String,
+        default: ''
+    },
     options: {
         type: Array,
         default: [],
@@ -21,17 +24,24 @@ defineProps({
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const state = reactive({
-    toto: ''
+const localModelValue = ref(props.modelValue);
+
+watch(() => props.modelValue, (value) => {
+
+    localModelValue.value = value;
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const updateValue = (e) => {
+const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.includes(localModelValue.value)).sort());
 
-    state.toto = e.target.value;
+/*--------------------------------------------------------------------------------------------------------------------*/
 
-    emit('update:modelValue', e.target.value);
+const updateValue = (value) => {
+
+    localModelValue.value = value;
+
+    emit('update:modelValue', value);
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -41,18 +51,16 @@ const updateValue = (e) => {
 
     <!-- *********************************************************************************************************** -->
 
-    <div class="dropdown" v-bind="$attrs">
+    <div className="dropdown" v-bind="$attrs">
 
-        <input type="text" :value="modelValue" @input="updateValue" data-bs-toggle="dropdown" />
+        <input type="text" :value="localModelValue" @input="updateValue($event.target.value)" data-bs-toggle="dropdown" />
 
-        <ul class="dropdown-menu">
-            <template v-for="option in options">
-                <li v-if="!state.toto || state.toto.includes(option)">
-                    <a class="dropdown-item" href="#">
-                        {{option}}
-                    </a>
-                </li>
-            </template>
+        <ul className="dropdown-menu">
+            <li v-for="option in filteredOptions">
+                <a className="dropdown-item" href="#" @click.prevent="updateValue(option)">
+                    {{option}}
+                </a>
+            </li>
         </ul>
 
     </div>
