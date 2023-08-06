@@ -44,6 +44,8 @@ const _update_func = (endpoint, token) => {
 
         _client.on('connect', () => {
 
+            _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
+
             _connected = true;
             if(_connectionCallback) {
                 _connectionCallback(true);
@@ -52,6 +54,8 @@ const _update_func = (endpoint, token) => {
 
         _client.on('reconnect', () => {
 
+            _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
+
             _connected = true;
             if(_connectionCallback) {
                 _connectionCallback(true);
@@ -59,6 +63,8 @@ const _update_func = (endpoint, token) => {
         });
 
         _client.on('disconnect', () => {
+
+            ///////.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
 
             _connected = false;
             if(_connectionCallback) {

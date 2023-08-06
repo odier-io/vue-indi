@@ -16,7 +16,7 @@ const emit = defineEmits([
 const props = defineProps({
     modelValue: {
         type: String,
-        default: ''
+        default: '',
     },
     options: {
         type: Array,
