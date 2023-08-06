@@ -53,13 +53,13 @@ const updateValue = (value) => {
 
     <!-- *********************************************************************************************************** -->
 
-    <div className="dropdown" v-bind="$attrs">
+    <div class="dropdown" v-bind="$attrs">
 
         <input type="text" :value="localModelValue" @input="updateValue($event.target.value)" data-bs-toggle="dropdown" />
 
-        <ul className="dropdown-menu">
+        <ul class="dropdown-menu">
             <li v-for="option in filteredOptions">
-                <a className="dropdown-item" href="#" @click.prevent="updateValue(option)">
+                <a class="dropdown-item" href="#" @click.prevent="updateValue(option)">
                     {{option}}
                 </a>
             </li>
