@@ -35,7 +35,7 @@ watch(() => props.modelValue, (value) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.includes(localModelValue.value)).sort());
+const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.includes(localModelValue.value)).sort((x, y) => x.toLowerCase().localeCompare(y.toLowerCase())));
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
