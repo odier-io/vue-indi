@@ -56,7 +56,7 @@ defineProps({
 
             <div class="tab-content">
 
-                <div :class="`tab-pane fade ${groupIndex === 0 ? 'show active' : ''}`" :id="`indi_group_pane_${deviceIndex}_${groupIndex}`" tabindex="0" role="tabpanel" v-for="(groupInfo, groupName, groupIndex) in deviceInfo" :key="groupName">
+                <div :class="`tab-pane ${groupIndex === 0 ? 'show active' : ''}`" :id="`indi_group_pane_${deviceIndex}_${groupIndex}`" tabindex="0" role="tabpanel" v-for="(groupInfo, groupName, groupIndex) in deviceInfo" :key="groupName">
 
                     <indi-panel :group-info="groupInfo" />
 
