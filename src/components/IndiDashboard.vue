@@ -110,13 +110,13 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <div class="tab-pane fade m-auto show active" id="indi_home_pane" tabindex="0" role="tabpanel">
+            <div class="tab-pane fade align-items-center justify-content-center show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
                 <indi-home />
 
             </div>
 
-            <div class="tab-pane fade m-auto xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
+            <div class="tab-pane fade align-items-center justify-content-center xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
                 <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
 
