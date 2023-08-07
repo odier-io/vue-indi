@@ -1,13 +1,13 @@
 // noinspection JSUnresolvedReference, JSUnusedGlobalSymbols
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import { inject } from 'vue';
+
 import { defineStore } from 'pinia';
 
 import { Terminal } from 'xterm';
 
 import 'xterm/css/xterm.css';
-import indi from "../plugins/indi";
-import sock from "../plugins/sock";
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
