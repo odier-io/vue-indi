@@ -18,11 +18,12 @@ const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, couri
 const useIndiStore = defineStore('indi', {
     state: () => {
 
+        /*------------------------------------------------------------------------------------------------------------*/
+
         const indi = inject('indi');
         const sock = inject('sock');
 
-        console.log(indi);
-        console.log(sock)
+        /*------------------------------------------------------------------------------------------------------------*/
 
         const initialize = (json) => {
 
@@ -38,6 +39,8 @@ const useIndiStore = defineStore('indi', {
 
         sock.subscribe('indi', initialize);
 
+        /*------------------------------------------------------------------------------------------------------------*/
+
         return {
             drivers: [],
             offOnSwitch: 'off',
@@ -46,6 +49,8 @@ const useIndiStore = defineStore('indi', {
             messageDict: {},
             defXXXVectorDict: {},
         };
+
+        /*------------------------------------------------------------------------------------------------------------*/
     },
     getters: {
         /*------------------------------------------------------------------------------------------------------------*/
