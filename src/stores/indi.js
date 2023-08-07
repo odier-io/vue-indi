@@ -6,6 +6,8 @@ import { defineStore } from 'pinia';
 import { Terminal } from 'xterm';
 
 import 'xterm/css/xterm.css';
+import indi from "../plugins/indi";
+import sock from "../plugins/sock";
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -15,6 +17,24 @@ const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, couri
 
 const useIndiStore = defineStore('indi', {
     state: () => {
+
+        const indi = inject('indi');
+        const sock = inject('sock');
+
+        const initialize = (json) => {
+
+            try
+            {
+                indi.processMessage(JSON.parse(json));
+            }
+            catch(e)
+            {
+                console.error(`Error parsing message: ${e}`);
+            }
+        };
+
+        sock.subscribe('indi', initialize);
+
         return {
             drivers: [],
             offOnSwitch: 'off',

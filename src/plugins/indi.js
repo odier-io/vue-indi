@@ -8,7 +8,7 @@ const _buildKey = (message) => `${message['@device']}:${message['@name']}`;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _processMessage = (message) => {
+const _processMessage_func = (message) => {
 
     const indiStore = useIndiStore();
 
@@ -124,7 +124,7 @@ const _processMessage = (message) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _buildNewTextVectorMessage = (defTextVector) => {
+const _buildNewTextVectorMessage_func = (defTextVector) => {
 
     const result = {'<>': 'newTextVector', '@device': defTextVector['@device'], '@name': defTextVector['@name'], 'children': []};
 
@@ -145,7 +145,7 @@ const _buildNewTextVectorMessage = (defTextVector) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _buildNewNumberVectorMessage = (defNumberVector) => {
+const _buildNewNumberVectorMessage_func = (defNumberVector) => {
 
     const result = {'<>': 'newNumberVector', '@device': defNumberVector['@device'], '@name': defNumberVector['@name'], 'children': []};
 
@@ -166,7 +166,7 @@ const _buildNewNumberVectorMessage = (defNumberVector) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _buildNewSwitchVectorMessage = (defSwitchVector, index) => {
+const _buildNewSwitchVectorMessage_func = (defSwitchVector, index) => {
 
     const result = {'<>': 'newSwitchVector', '@device': defSwitchVector['@device'], '@name': defSwitchVector['@name'], 'children': []};
 
@@ -236,10 +236,10 @@ export default {
     install(app)
     {
         app.provide('indi', {
-            processMessage: _processMessage,
-            buildNewTextVectorMessage: _buildNewTextVectorMessage,
-            buildNewNumberVectorMessage: _buildNewNumberVectorMessage,
-            buildNewSwitchVectorMessage: _buildNewSwitchVectorMessage,
+            processMessage: _processMessage_func,
+            buildNewTextVectorMessage: _buildNewTextVectorMessage_func,
+            buildNewNumberVectorMessage: _buildNewNumberVectorMessage_func,
+            buildNewSwitchVectorMessage: _buildNewSwitchVectorMessage_func,
         });
     }
 };
