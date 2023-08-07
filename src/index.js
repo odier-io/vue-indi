@@ -11,6 +11,7 @@ import 'bootstrap/js/src/modal';
 
 import indiPlugin from './plugins/indi';
 import sockPlugin from './plugins/sock';
+
 import useIndiStore from './stores/indi';
 
 import IndiDriver from './components/IndiDriver.vue';
@@ -28,12 +29,12 @@ const setup = (app) => {
     app.use(indiPlugin);
     app.use(sockPlugin);
 
-    /*--------------------------------------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
 
     const indi = inject('indi');
     const sock = inject('sock');
 
-    /*--------------------------------------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
 
     sock.subscribe('indi', (json) => {
 
