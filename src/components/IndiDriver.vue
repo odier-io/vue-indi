@@ -1,9 +1,9 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import typeahead from '../components/typeahead/typeahead.vue';
-
 import useIndiStore from '../stores/indi';
+
+import typeahead from '../components/typeahead/typeahead.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 

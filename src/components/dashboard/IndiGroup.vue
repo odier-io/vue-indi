@@ -22,15 +22,15 @@ defineProps({
 
     <!-- *********************************************************************************************************** -->
 
-    <div v-for="property in Object.values(groupInfo)">
+    <div v-for="defXXXVector in Object.values(groupInfo)">
 
-        <indi-text-vector :def-text-vector="property" v-if="property['<>'] === 'defTextVector'" />
+        <indi-text-vector :def-text-vector="defXXXVector" v-if="defXXXVector['<>'] === 'defTextVector'" />
 
-        <indi-number-vector :def-number-vector="property" v-else-if="property['<>'] === 'defNumberVector'" />
+        <indi-number-vector :def-number-vector="defXXXVector" v-else-if="defXXXVector['<>'] === 'defNumberVector'" />
 
-        <indi-switch-vector :def-switch-vector="property" v-else-if="property['<>'] === 'defSwitchVector'" />
+        <indi-switch-vector :def-switch-vector="defXXXVector" v-else-if="defXXXVector['<>'] === 'defSwitchVector'" />
 
-        <indi-light-vector :def-light-vector="property" v-else-if="property['<>'] === 'defLightVector'" />
+        <indi-light-vector :def-light-vector="defXXXVector" v-else-if="defXXXVector['<>'] === 'defLightVector'" />
 
     </div>
 
