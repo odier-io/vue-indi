@@ -1,34 +1,11 @@
 // noinspection JSUnresolvedReference, JSUnusedGlobalSymbols
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import { inject } from 'vue';
-
 import { defineStore } from 'pinia';
 
 import { Terminal } from 'xterm';
 
 import 'xterm/css/xterm.css';
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-const indi = inject('indi');
-const sock = inject('sock');
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-const initialize = (json) => {
-
-    try
-    {
-        indi.processMessage(JSON.parse(json));
-    }
-    catch(e)
-    {
-        console.error(`Error parsing message: ${e}`);
-    }
-};
-
-sock.subscribe('indi', initialize);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 

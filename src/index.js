@@ -1,5 +1,7 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import { inject } from 'vue';
+
 import { createPinia } from 'pinia';
 
 import 'bootstrap/js/src/tab';
@@ -7,9 +9,8 @@ import 'bootstrap/js/src/modal';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-import indi from './plugins/indi';
-import sock from './plugins/sock';
-
+import indiPlugin from './plugins/indi';
+import sockPlugin from './plugins/sock';
 import useIndiStore from './stores/indi';
 
 import IndiDriver from './components/IndiDriver.vue';
@@ -24,8 +25,29 @@ const setup = (app) => {
 
     app.use(createPinia());
 
-    app.use(indi);
-    app.use(sock);
+    app.use(indiPlugin);
+    app.use(sockPlugin);
+
+    /*--------------------------------------------------------------------------------------------------------------------*/
+
+    const indi = inject('indi');
+    const sock = inject('sock');
+
+    /*--------------------------------------------------------------------------------------------------------------------*/
+
+    const initialize = (json) => {
+
+        try
+        {
+            indi.processMessage(JSON.parse(json));
+        }
+        catch(e)
+        {
+            console.error(`Error parsing message: ${e}`);
+        }
+    };
+
+    sock.subscribe('indi', initialize);
 
     /*----------------------------------------------------------------------------------------------------------------*/
 };
