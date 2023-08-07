@@ -8,9 +8,7 @@ let _client = null;
 let _endpoint = null;
 let _connected = false;
 
-let _connectionCallback = null;
-
-const _messageCallbackDict = {};
+const _callbackDict = {};
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -46,43 +44,49 @@ const _update_func = (endpoint, token) => {
 
         _client.on('connect', () => {
 
+            _connected = true;
+
             _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
 
-            _connected = true;
-            if(_connectionCallback) {
-                _connectionCallback(true);
-            }
+            if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
+
+                callback(true);
+            });
         });
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         _client.on('reconnect', () => {
 
+            _connected = true;
+
             _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
 
-            _connected = true;
-            if(_connectionCallback) {
-                _connectionCallback(true);
-            }
+            if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
+
+                callback(true);
+            });
         });
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         _client.on('disconnect', () => {
 
+            _connected = false;
+
             ///////.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
 
-            _connected = false;
-            if(_connectionCallback) {
-                _connectionCallback(false);
-            }
+            if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
+
+                callback(false);
+            });
         });
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         _client.onAny((topic, message) => {
 
-            if(topic in _messageCallbackDict) _messageCallbackDict[topic].forEach((callback) => {
+            if(topic in _callbackDict) _callbackDict[topic].forEach((callback) => {
 
                 callback(message);
             });
@@ -100,41 +104,44 @@ const _update_func = (endpoint, token) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _setConnectionCallback_func = (callback) => {
+const _setConnectionCallback_func = (callback) => _subscribe_func('$connection$', callback);
 
-    _connectionCallback = typeof callback === 'function' ? callback : null;
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const _subscribe_func = (topic, callback) => {
+
+    let set;
+
+    if(topic in _callbackDict) {
+        set = _callbackDict[topic] ; /////////;
+    }
+    else {
+        set = _callbackDict[topic] = new Set();
+    }
+
+    if(typeof callback === 'function')
+    {
+        set.add(callback);
+    }
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _subscribe_func = (topic, listener) => {
+const _unsubscribe_func = (topic, callback) => {
 
     let set;
 
-    if(topic in _messageCallbackDict) {
-        set = _messageCallbackDict[topic] ; /////////;
+    if(topic in _callbackDict) {
+        set = _callbackDict[topic] ; /////////;
     }
     else {
-        set = _messageCallbackDict[topic] = new Set();
+        set = _callbackDict[topic] = new Set();
     }
 
-    set.add(listener);
-};
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-const _unsubscribe_func = (topic, listener) => {
-
-    let set;
-
-    if(topic in _messageCallbackDict) {
-        set = _messageCallbackDict[topic] ; /////////;
+    if(typeof callback === 'function')
+    {
+        set.delete(callback);
     }
-    else {
-        set = _messageCallbackDict[topic] = new Set();
-    }
-
-    set.delete(listener);
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
