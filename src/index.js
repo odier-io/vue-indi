@@ -41,7 +41,7 @@ const setup = (app) => {
         }
     };
 
-    sock.subscribe('indi', initialize);
+    app._context.provides.sock.subscribe('indi', initialize);
 
     /*----------------------------------------------------------------------------------------------------------------*/
 };
