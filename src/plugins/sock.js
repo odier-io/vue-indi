@@ -6,10 +6,9 @@ import io from 'socket.io-client';
 
 let _client = null;
 let _endpoint = null;
-let _connectionCallback = null;
 let _connected = false;
 
-/*--------------------------------------------------------------------------------------------------------------------*/
+let _connectionCallback = null;
 
 const _messageCallbackDict = {};
 
