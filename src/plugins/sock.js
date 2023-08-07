@@ -11,6 +11,10 @@ let _connected = false;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+const _messageCallbackDict = {};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const _connected_func = () => _client && _endpoint && _connected;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -53,6 +57,8 @@ const _update_func = (endpoint, token) => {
             }
         });
 
+        /*------------------------------------------------------------------------------------------------------------*/
+
         _client.on('reconnect', () => {
 
             _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
@@ -63,6 +69,8 @@ const _update_func = (endpoint, token) => {
             }
         });
 
+        /*------------------------------------------------------------------------------------------------------------*/
+
         _client.on('disconnect', () => {
 
             ///////.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
@@ -71,6 +79,16 @@ const _update_func = (endpoint, token) => {
             if(_connectionCallback) {
                 _connectionCallback(false);
             }
+        });
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        _client.onAny((topic, message) => {
+
+            if(topic in _messageCallbackDict) _messageCallbackDict[topic].forEach((callback) => {
+
+                callback(message);
+            });
         });
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -94,22 +112,32 @@ const _setConnectionCallback_func = (callback) => {
 
 const _subscribe_func = (topic, listener) => {
 
-    if(_client)
-    {
-        console.log('subscribe_func');
-        _client.on(topic, listener);
+    let set;
+
+    if(topic in _messageCallbackDict) {
+        set = _messageCallbackDict[topic] ; /////;
     }
+    else {
+        set = _messageCallbackDict[topic] = Set();
+    }
+
+    set.add(listener);
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const _unsubscribe_func = (topic, listener) => {
 
-    if(_client)
-    {
-        console.log('unsubscribe_func');
-        _client.off(topic, listener);
+    let set;
+
+    if(topic in _messageCallbackDict) {
+        set = _messageCallbackDict[topic] ; /////;
     }
+    else {
+        set = _messageCallbackDict[topic] = Set();
+    }
+
+    set.delete(listener);
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
