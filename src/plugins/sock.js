@@ -17,6 +17,8 @@ const _connected_func = () => _client && _endpoint && _connected;
 
 const _update_func = (endpoint, token) => {
 
+    console.log('update_func');
+
     /*----------------------------------------------------------------------------------------------------------------*/
 
     if(_client)
@@ -94,6 +96,7 @@ const _subscribe_func = (topic, listener) => {
 
     if(_client)
     {
+        console.log('subscribe_func');
         _client.on(topic, listener);
     }
 };
@@ -104,6 +107,7 @@ const _unsubscribe_func = (topic, listener) => {
 
     if(_client)
     {
+        console.log('unsubscribe_func');
         _client.off(topic, listener);
     }
 };
