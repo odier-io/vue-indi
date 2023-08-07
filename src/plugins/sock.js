@@ -7,7 +7,6 @@ import io from 'socket.io-client';
 let _client = null;
 let _endpoint = null;
 let _connectionCallback = null;
-let _messageCallback = null;
 let _connected = false;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -73,21 +72,6 @@ const _update_func = (endpoint, token) => {
         });
 
         /*------------------------------------------------------------------------------------------------------------*/
-
-        _client.replaceAllListeners = (topic) => {
-
-            _client.removeAllListeners(topic);
-
-            _client.on(topic, (payload) => {
-
-                if(_messageCallback)
-                {
-                    _messageCallback(topic, payload);
-                }
-            });
-        };
-
-        /*------------------------------------------------------------------------------------------------------------*/
     }
     catch(_)
     {
@@ -106,28 +90,21 @@ const _setConnectionCallback_func = (callback) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _setMessageCallback_func = (callback) => {
-
-    _messageCallback = typeof callback === 'function' ? callback : null;
-};
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-const _subscribe_func = (topic) => {
+const _subscribe_func = (topic, listener) => {
 
     if(_client)
     {
-        _client.replaceAllListeners(topic);
+        _client.on(topic, listener);
     }
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const _unsubscribe_func = (topic) => {
+const _unsubscribe_func = (topic, listener) => {
 
     if(_client)
     {
-        _client.removeAllListeners(topic);
+        _client.off(topic, listener);
     }
 };
 
