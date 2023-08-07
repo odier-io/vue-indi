@@ -112,6 +112,8 @@ const _setConnectionCallback_func = (callback) => {
 
 const _subscribe_func = (topic, listener) => {
 
+    console.log('Subscribe : ' + topic + ' ' + listener);
+
     let set;
 
     if(topic in _messageCallbackDict) {
@@ -127,6 +129,8 @@ const _subscribe_func = (topic, listener) => {
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const _unsubscribe_func = (topic, listener) => {
+
+    console.log('Unsubscribe : ' + topic + ' ' + listener);
 
     let set;
 
