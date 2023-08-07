@@ -117,10 +117,10 @@ const _subscribe_func = (topic, listener) => {
     let set;
 
     if(topic in _messageCallbackDict) {
-        set = _messageCallbackDict[topic] ; /////;
+        set = _messageCallbackDict[topic] ; /////////;
     }
     else {
-        set = _messageCallbackDict[topic] = Set();
+        set = _messageCallbackDict[topic] = new Set();
     }
 
     set.add(listener);
@@ -135,10 +135,10 @@ const _unsubscribe_func = (topic, listener) => {
     let set;
 
     if(topic in _messageCallbackDict) {
-        set = _messageCallbackDict[topic] ; /////;
+        set = _messageCallbackDict[topic] ; /////////;
     }
     else {
-        set = _messageCallbackDict[topic] = Set();
+        set = _messageCallbackDict[topic] = new Set();
     }
 
     set.delete(listener);
