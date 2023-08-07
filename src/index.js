@@ -34,6 +34,9 @@ const setup = (app) => {
     const indi = inject('indi');
     const sock = inject('sock');
 
+    console.log(indi);
+    console.log(sock);
+
     /*----------------------------------------------------------------------------------------------------------------*/
 
     sock.subscribe('indi', (json) => {

@@ -141,10 +141,7 @@ const _unsubscribe_func = (topic, listener) => {
 
 const _emit_func = (topic, payload) => {
 
-    if(_connected_func())
-    {
-        _client.timeout(5000).emit(topic, payload);
-    }
+    if(_connected_func()) _client.timeout(5000).emit(topic, payload);
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
