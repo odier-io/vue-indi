@@ -21,6 +21,9 @@ const useIndiStore = defineStore('indi', {
         const indi = inject('indi');
         const sock = inject('sock');
 
+        console.log(indi);
+        console.log(sock)
+
         const initialize = (json) => {
 
             try
