@@ -128,7 +128,6 @@ export default {
             connected            : _connected_func            ,
             update               : _update_func               ,
             setConnectionCallback: _setConnectionCallback_func,
-            setMessageCallback   : _setMessageCallback_func   ,
             subscribe            : _subscribe_func            ,
             unsubscribe          : _unsubscribe_func          ,
             emit                 : _emit_func                 ,
