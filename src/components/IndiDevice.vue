@@ -19,7 +19,7 @@ const indiStore = useIndiStore();
 
 const drivers = computed(() => {
 
-    const result = Object.values(indiStore.driverDict);
+    const result = Object.values(indiStore.drivers);
 
     result.sort((x, y) => x.rank - y.rank);
 
@@ -36,7 +36,7 @@ const driverAppend = () => {
 
     const id = uuidV4();
 
-    indiStore.driverDict[id] = {
+    indiStore.drivers[id] = {
         id: id,
         rank: rank,
         driver: '',
@@ -49,7 +49,7 @@ const driverAppend = () => {
 
 const driverRm = (driver) => {
 
-    delete indiStore.driverDict[driver.id];
+    delete indiStore.drivers[driver.id];
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -153,7 +153,7 @@ const driverUp = (driver1) => {
         </div>
     </div>
 
-    {{ indiStore.driverDict }}
+    {{ indiStore.drivers }}
 
     <!-- *********************************************************************************************************** -->
 
