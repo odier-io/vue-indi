@@ -10,6 +10,26 @@ import typeahead from '../components/typeahead/typeahead.vue';
 const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+
+const categories = [
+    'Mount',
+    'Camera',
+    'Guiding camera',
+    'Focuser',
+    'Filter',
+    'Dome',
+    'Weather',
+    'Aux 1',
+    'Aux 2',
+    'Aux 3',
+    'Aux 4',
+    'Aux 5',
+    'Aux 6',
+    'Aux 7',
+    'Aux 8',
+];
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 </script>
 
 <template>
@@ -31,8 +51,8 @@ const indiStore = useIndiStore();
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input class="form-select form-select-sm" type="text" /></td>
+                    <tr v-for="category in categories">
+                        <td>{{category}}</td>
                         <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
                     </tr>
                 </tbody>
