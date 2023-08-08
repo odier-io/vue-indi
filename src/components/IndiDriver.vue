@@ -63,7 +63,7 @@ const indiStore = useIndiStore();
                             </td>
                             <td class="text-center">
                                 <select class="form-select form-select-sm">
-
+                                    <option :value="value" v-for="(label, value) in indiStore.deviceCategories" :key="name">{{label}}</option>
                                 </select>
                             </td>
                             <td class="text-center">
