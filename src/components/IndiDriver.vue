@@ -48,7 +48,7 @@ const deviceAppend = () => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const deviceRemove = (device) => {
+const deviceRm = (device) => {
 
     delete indiStore.devices[device.id];
 };
@@ -138,7 +138,7 @@ const deviceUp = (device1) => {
                                 <button class="btn btn-sm btn-link" type="button" @click="deviceUp(device)">
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="deviceRemove(device)">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceRm(device)">
                                     <i class="bi bi-trash2 text-danger"></i>
                                 </button>
                             </td>
