@@ -96,7 +96,7 @@ const deviceUp = (device1) => {
 
     <div class="card mx-auto mb-3">
         <div class="card-header px-3 py-2">
-            <i class="bi bi-cpu"></i>
+            <i class="bi bi-node-plus"></i>
             Device
             [
                 <button class="btn btn-xs btn-primary" type="button" @click="deviceAppend()">

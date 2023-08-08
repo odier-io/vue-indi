@@ -95,7 +95,7 @@ const driverUp = (driver1) => {
 
     <div class="card mx-auto mb-3">
         <div class="card-header px-3 py-2">
-            <i class="bi bi-cpu"></i>
+            <i class="bi bi-motherboard"></i>
             Drivers
             [
                 <button class="btn btn-xs btn-primary" type="button" @click="driverAppend()">
