@@ -95,15 +95,15 @@ const deviceUp = (device1) => {
     <!-- *********************************************************************************************************** -->
 
     <div class="card mx-auto mb-3">
-        <div class="card-header d-flex px-3 py-2">
-            <span>
-                <i class="bi bi-cpu"></i>
-                Devices
-            </span>
-            <button class="btn btn-xs btn-primary ms-auto" type="button" @click="deviceAppend()">
-                <i class="bi bi-plus-lg"></i>
-                Add device
-            </button>
+        <div class="card-header px-3 py-2">
+            <i class="bi bi-cpu"></i>
+            Devices
+            [
+                <button class="btn btn-xs btn-primary" type="button" @click="deviceAppend()">
+                    <i class="bi bi-plus-lg"></i>
+                    Add device
+                </button>
+            ]
         </div>
         <div class="card-body px-3 py-2">
 
