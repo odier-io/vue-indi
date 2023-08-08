@@ -10,6 +10,30 @@ import typeahead from '../components/typeahead/typeahead.vue';
 const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+
+const deviceAppend = () => {
+
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const deviceRemove = () => {
+
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const deviceDw = () => {
+
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const deviceUp = () => {
+
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 </script>
 
 <template>
@@ -18,10 +42,13 @@ const indiStore = useIndiStore();
 
     <div class="card mx-auto mb-3">
         <div class="card-header d-flex px-3 py-2">
-            <i class="bi bi-cpu"></i>
-            Drivers
-            <button class="btn btn-xs btn-primary ms-auto" type="button" @click="">
-                <i class="bi bi-plus-lg"></i> Add device
+            <span>
+                <i class="bi bi-cpu"></i>
+                Devices
+            </span>
+            <button class="btn btn-xs btn-primary ms-auto" type="button" @click="deviceAppend()">
+                <i class="bi bi-plus-lg"></i>
+                Add device
             </button>
         </div>
         <div class="card-body px-3 py-2">
@@ -49,25 +76,27 @@ const indiStore = useIndiStore();
                     <!-- ******************************************************************************************* -->
 
                     <tbody>
-                        <tr v-for="(label, name) in indiStore.deviceCategories" :key="name">
+                        <tr v-for="device in indiStore.devices">
                             <td class="text-center">
-                                <button class="btn btn-sm btn-link" type="button" @click="">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceDw()">
                                     <i class="bi bi-caret-up-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceUp()">
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceRemove()">
                                     <i class="bi bi-trash2 text-danger"></i>
                                 </button>
                             </td>
                             <td class="text-center">
-                                <select class="form-select form-select-sm">
-                                    <option :value="value" v-for="(label, value) in indiStore.deviceCategories" :key="name">{{label}}</option>
+                                <select class="form-select form-select-sm" v-model="device.category">
+                                    <option :value="value" v-for="(label, value) in indiStore.deviceCategories" :key="name">
+                                        {{label}}
+                                    </option>
                                 </select>
                             </td>
                             <td class="text-center">
-                                <typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="indiStore.devices[name]"></typeahead>
+                                <typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="device.driver" />
                             </td>
                         </tr>
                     </tbody>

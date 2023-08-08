@@ -38,19 +38,9 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        const devices = Object.keys(DEVICE_CATEGORIES).reduce((dict, category) => {
-
-            dict[category] = '';
-
-            return dict;
-
-        }, {});
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
         return {
             drivers: [],
-            devices: devices,
+            devices: [],
             offOnSwitch: 'off',
             currentDeviceName: '---',
             /**/
