@@ -43,20 +43,24 @@ const categories = [
         </div>
         <div class="card-body px-3 py-2">
 
-            <table class="table table-sm table-striped">
-                <thead>
-                    <tr>
-                        <th class="w-50">Device</th>
-                        <th class="w-50">Driver</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="category in categories">
-                        <td>{{category}}</td>
-                        <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="table-responsive" style="max-height: 450px; overflow-y: scroll;">
+
+                <table class="table table-sm table-striped">
+                    <thead>
+                        <tr>
+                            <th class="w-50">Device</th>
+                            <th class="w-50">Driver</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="category in categories">
+                            <td>{{category}}</td>
+                            <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers"></typeahead></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
 
         </div>
     </div>
