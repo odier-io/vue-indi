@@ -28,14 +28,43 @@ const indiStore = useIndiStore();
                 <table class="table table-sm table-striped">
                     <thead>
                         <tr>
-                            <th class="w-50">Device</th>
-                            <th class="w-50">Driver</th>
+                            <th class="text-start" style="width: 80px;">
+                                Order
+                            </th>
+                            <th class="text-start" style="width: calc(50% - 100px);">
+                                Device
+                            </th>
+                            <th class="text-start" style="width: calc(50% - 100px);">
+                                Driver
+                            </th>
+                            <th class="text-center" style="width: 120px;">
+                                <button class="btn btn-xs btn-primary" type="button" @click="">
+                                    <i class="bi bi-plus-lg"></i> Add device
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(label, name) in indiStore.deviceCategories" :key="name">
-                            <td>{{label}}</td>
-                            <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="indiStore.devices[name]"></typeahead></td>
+                            <td>
+                                <button class="btn btn-sm btn-link" type="button" @click="">
+                                    <i class="bi bi-caret-up-fill"></i>
+                                </button>
+                                <button class="btn btn-sm btn-link" type="button" @click="">
+                                    <i class="bi bi-caret-down-fill"></i>
+                                </button>
+                            </td>
+                            <td>
+                                {{label}}
+                            </td>
+                            <td>
+                                <typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="indiStore.devices[name]"></typeahead>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" type="button" @click="">
+                                    <i class="bi bi-trash2"></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
