@@ -1,6 +1,8 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import { computed } from 'vue';
+
 import { v4 as uuidV4 } from 'uuid';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -12,6 +14,17 @@ import typeahead from '../components/typeahead/typeahead.vue';
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const indiStore = useIndiStore();
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const devices = computed(() => {
+
+    const result = Object.values(indiStore.devices);
+
+    result.sort((x, y) => x.rank - y.rank);
+
+    return result;
+});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -42,14 +55,36 @@ const deviceRemove = (device) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const deviceDw = (device) => {
+const deviceDw = (device1) => {
 
+    const array = devices.value;
+
+    const index = array.findIndex((device2) => device2.id === device1.id);
+
+    if(index > 0x0000000000)
+    {
+        const device2 = array[index - 1];
+
+        device1.rank--;
+        device2.rank++;
+    }
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const deviceUp = (device) => {
+const deviceUp = (device1) => {
 
+    const array = devices.value;
+
+    const index = array.findIndex(device2 => device2.id === device1.id);
+
+    if(index < array.length)
+    {
+        const device2 = array[index + 1];
+
+        device1.rank++;
+        device2.rank--;
+    }
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +130,7 @@ const deviceUp = (device) => {
                     <!-- ******************************************************************************************* -->
 
                     <tbody>
-                        <tr v-for="device in indiStore.devices">
+                        <tr v-for="device in devices">
                             <td class="text-center">
                                 <button class="btn btn-sm btn-link" type="button" @click="deviceDw(device)">
                                     <i class="bi bi-caret-up-fill"></i>
