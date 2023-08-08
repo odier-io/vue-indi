@@ -26,6 +26,9 @@ const indiStore = useIndiStore();
             <div class="table-responsive" style="max-height: 450px; overflow-y: scroll;">
 
                 <table class="table table-sm table-striped">
+
+                    <!-- ******************************************************************************************* -->
+
                     <thead>
                         <tr>
                             <th class="text-start" style="width: 80px;">
@@ -44,9 +47,12 @@ const indiStore = useIndiStore();
                             </th>
                         </tr>
                     </thead>
+
+                    <!-- ******************************************************************************************* -->
+
                     <tbody>
                         <tr v-for="(label, name) in indiStore.deviceCategories" :key="name">
-                            <td>
+                            <td class="text-center">
                                 <button class="btn btn-sm btn-link" type="button" @click="">
                                     <i class="bi bi-caret-up-fill"></i>
                                 </button>
@@ -54,19 +60,24 @@ const indiStore = useIndiStore();
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
                             </td>
-                            <td>
-                                {{label}}
+                            <td class="text-center">
+                                <select class="form-select form-select-sm">
+
+                                </select>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="indiStore.devices[name]"></typeahead>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <button class="btn btn-sm btn-danger" type="button" @click="">
                                     <i class="bi bi-trash2"></i>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
+
+                    <!-- ******************************************************************************************* -->
+
                 </table>
 
             </div>
