@@ -34,8 +34,8 @@ const indiStore = useIndiStore();
 
                     <thead>
                         <tr>
-                            <th class="text-start" style="width: 100px;">
-                                Order
+                            <th class="text-start" style="width: 105px;">
+                                Tools
                             </th>
                             <th class="text-start" style="width: calc(50% - 50px);">
                                 Device
@@ -57,8 +57,8 @@ const indiStore = useIndiStore();
                                 <button class="btn btn-sm btn-link" type="button" @click="">
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-danger" type="button" @click="">
-                                    <i class="bi bi-trash2"></i>
+                                <button class="btn btn-sm btn-link" type="button" @click="">
+                                    <i class="bi bi-trash2 text-danger"></i>
                                 </button>
                             </td>
                             <td class="text-center">
