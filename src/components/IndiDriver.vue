@@ -34,13 +34,13 @@ const indiStore = useIndiStore();
 
                     <thead>
                         <tr>
-                            <th class="text-start" style="width: 105px;">
+                            <th class="text-center">
                                 Tools
                             </th>
-                            <th class="text-start" style="width: calc(50% - 50px);">
+                            <th class="text-center">
                                 Device
                             </th>
-                            <th class="text-start" style="width: calc(50% - 50px);">
+                            <th class="text-center">
                                 Driver
                             </th>
                         </tr>
