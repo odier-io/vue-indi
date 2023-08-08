@@ -20,7 +20,8 @@ const props = defineProps({
     },
     options: {
         type: Array,
-        default: [],
+        default: () => [],
+        validator: (options) => options.every(option => option.hasOwnProperty('value') && option.hasOwnProperty('label'))
     },
 });
 
@@ -35,7 +36,7 @@ watch(() => props.modelValue, (value) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.includes(localModelValue.value)).sort((x, y) => x.toLowerCase().localeCompare(y.toLowerCase())));
+const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.label.includes(localModelValue.value)).sort((x, y) => x.label.toLowerCase().localeCompare(y.label.toLowerCase())));
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -59,8 +60,8 @@ const updateValue = (value) => {
 
         <ul class="dropdown-menu">
             <li v-for="option in filteredOptions">
-                <a class="dropdown-item" href="#" @click.prevent="updateValue(option)">
-                    {{option}}
+                <a class="dropdown-item" href="#" @click.prevent="updateValue(option.value)">
+                    {{option.label}}
                 </a>
             </li>
         </ul>

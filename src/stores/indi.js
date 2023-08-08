@@ -12,8 +12,8 @@ import 'xterm/css/xterm.css';
 const DEVICE_CATEGORIES = {
     'dome': 'Dome',
     'mount': 'Mount',
-    'camera1': 'Main camera',
-    'camera2': 'Guiding camera',
+    'imaging_camera': 'Imaging camera',
+    'guiding_camera': 'Guiding camera',
     'focuser': 'Focuser',
     'filters': 'Filters',
     'weather': 'Weather',
