@@ -115,13 +115,13 @@ const deviceUp = (device1) => {
 
                     <thead>
                         <tr>
-                            <th class="text-center">
+                            <th class="text-center" style="width: 105px;">
                                 Tools
                             </th>
-                            <th class="text-center">
+                            <th class="text-center" style="width: auto;">
                                 Device
                             </th>
-                            <th class="text-center">
+                            <th class="text-center" style="width: auto;">
                                 Driver
                             </th>
                         </tr>
