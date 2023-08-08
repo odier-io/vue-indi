@@ -24,7 +24,7 @@ const props = defineProps({
 
 const openModal = () => {
 
-    indiStore.setCurrentDeviceName(props.deviceName).updateTerminal();
+    indiStore.updateTerminal(props.deviceName);
 
     new Modal(document.getElementById('indi_console')).show();
 };

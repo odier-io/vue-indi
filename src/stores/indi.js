@@ -1,4 +1,4 @@
-// noinspection JSUnresolvedReference, JSUnusedGlobalSymbols
+// noinspection JSUnresolvedReference
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import { defineStore } from 'pinia';
@@ -16,17 +16,55 @@ const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, couri
 const useIndiStore = defineStore('indi', {
     state: () => {
 
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        const devices = Object.keys(this.deviceCategories).reduce((dict, category) => {
+
+            dict[category] = '';
+
+            return dict;
+
+        }, {});
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
         return {
             drivers: [],
-            devices: {},
+            devices: devices,
             offOnSwitch: 'off',
             currentDeviceName: '---',
             /**/
             messageDict: {},
             defXXXVectorDict: {},
         };
+
+        /*------------------------------------------------------------------------------------------------------------*/
     },
     getters: {
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        deviceCategories()
+        {
+            return {
+                'dome': 'Dome',
+                'mount': 'Mount',
+                'camera1': 'Main camera',
+                'camera2': 'Guiding camera',
+                'focuser': 'Focuser',
+                'filters': 'Filters',
+                'weather': 'Weather',
+                'aux1': 'Aux 1',
+                'aux2': 'Aux 2',
+                'aux3': 'Aux 3',
+                'aux4': 'Aux 4',
+                'aux5': 'Aux 5',
+                'aux6': 'Aux 6',
+                'aux7': 'Aux 7',
+                'aux8': 'Aux 8',
+            };
+        },
+
         /*------------------------------------------------------------------------------------------------------------*/
 
         defXXXVectors()
@@ -67,33 +105,6 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        setDrivers(drivers)
-        {
-            this.drivers = drivers || [];
-
-            return this;
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        setOffOnSwitch(offOnSwitch)
-        {
-            this.offOnSwitch = offOnSwitch || false;
-
-            return this;
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        setCurrentDeviceName(currentDeviceName)
-        {
-            this.currentDeviceName = currentDeviceName || '';
-
-            return this;
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
         clearTerminal()
         {
             terminal.clear();
@@ -103,9 +114,14 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        updateTerminal()
+        updateTerminal(newDeviceName)
         {
             terminal.clear();
+
+            if(typeof newDeviceName !== 'undefined')
+            {
+                this.currentDeviceName = newDeviceName;
+            }
 
             if(this.currentDeviceName in this.messageDict)
             {
