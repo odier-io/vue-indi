@@ -17,9 +17,9 @@ const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const drivers = computed(() => {
+const devices = computed(() => {
 
-    const result = Object.values(indiStore.drivers);
+    const result = Object.values(indiStore.deviceDict);
 
     result.sort((x, y) => x.rank - y.rank);
 
@@ -32,14 +32,15 @@ let rank = 0;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const driverAppend = () => {
+const deviceAppend = () => {
 
     const id = uuidV4();
 
-    indiStore.drivers[id] = {
+    indiStore.deviceDict[id] = {
         id: id,
         rank: rank,
-        driver: '',
+        category: '',
+        device: '',
     };
 
     rank++;
@@ -47,42 +48,42 @@ const driverAppend = () => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const driverRm = (driver) => {
+const deviceRm = (device) => {
 
-    delete indiStore.drivers[driver.id];
+    delete indiStore.deviceDict[device.id];
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const driverDw = (driver1) => {
+const deviceDw = (device1) => {
 
-    const array = drivers.value;
+    const array = devices.value;
 
-    const index = array.findIndex((driver2) => driver2.id === driver1.id);
+    const index = array.findIndex((device2) => device2.id === device1.id);
 
     if(index > 0x0000000000)
     {
-        const driver2 = array[index - 1];
+        const device2 = array[index - 1];
 
-        driver1.rank--;
-        driver2.rank++;
+        device1.rank--;
+        device2.rank++;
     }
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const driverUp = (driver1) => {
+const deviceUp = (device1) => {
 
-    const array = drivers.value;
+    const array = devices.value;
 
-    const index = array.findIndex(driver2 => driver2.id === driver1.id);
+    const index = array.findIndex(device2 => device2.id === device1.id);
 
     if(index < array.length)
     {
-        const driver2 = array[index + 1];
+        const device2 = array[index + 1];
 
-        driver1.rank++;
-        driver2.rank--;
+        device1.rank++;
+        device2.rank--;
     }
 };
 
@@ -96,11 +97,11 @@ const driverUp = (driver1) => {
     <div class="card mx-auto mb-3">
         <div class="card-header px-3 py-2">
             <i class="bi bi-cpu"></i>
-            drivers
+            deviceDict
             [
-                <button class="btn btn-xs btn-primary" type="button" @click="driverAppend()">
+                <button class="btn btn-xs btn-primary" type="button" @click="deviceAppend()">
                     <i class="bi bi-plus-lg"></i>
-                    Add driver
+                    Add device
                 </button>
             ]
         </div>
@@ -118,7 +119,10 @@ const driverUp = (driver1) => {
                                 Tools
                             </th>
                             <th class="text-center" style="width: auto;">
-                                Driver
+                                Category
+                            </th>
+                            <th class="text-center" style="width: auto;">
+                                Device
                             </th>
                         </tr>
                     </thead>
@@ -126,20 +130,23 @@ const driverUp = (driver1) => {
                     <!-- ******************************************************************************************* -->
 
                     <tbody>
-                        <tr v-for="driver in drivers">
+                        <tr v-for="device in devices">
                             <td class="text-center">
-                                <button class="btn btn-sm btn-link" type="button" @click="driverDw(driver)">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceDw(device)">
                                     <i class="bi bi-caret-up-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="driverUp(driver)">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceUp(device)">
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="driverRm(driver)">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceRm(device)">
                                     <i class="bi bi-trash2 text-danger"></i>
                                 </button>
                             </td>
                             <td class="text-center">
-                                <typeahead class="form-control form-control-sm" :options="indiStore.driverDefs" v-model="driver.driver" />
+                                <typeahead class="form-control form-control-sm" :options="indiStore.categories" v-model="device.category" />
+                            </td>
+                            <td class="text-center">
+                                <typeahead class="form-control form-control-sm" :options="indiStore.categories" v-model="device.device" />
                             </td>
                         </tr>
                     </tbody>
@@ -153,7 +160,7 @@ const driverUp = (driver1) => {
         </div>
     </div>
 
-    {{ indiStore.drivers }}
+    {{ indiStore.deviceDict }}
 
     <!-- *********************************************************************************************************** -->
 

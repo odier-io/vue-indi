@@ -15,6 +15,7 @@ import sockPlugin from './plugins/sock';
 import useIndiStore from './stores/indi';
 
 import IndiDriver from './components/IndiDriver.vue';
+import IndiDevice from './components/IndiDevice.vue';
 import IndiVariable from './components/IndiVariable.vue';
 import IndiDashboard from './components/IndiDashboard.vue';
 
@@ -67,6 +68,7 @@ export {
     init,
     useIndiStore,
     IndiDriver,
+    IndiDevice,
     IndiVariable,
     IndiDashboard,
 };
