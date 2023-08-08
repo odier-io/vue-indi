@@ -110,13 +110,13 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <div class="tab-pane align-items-center justify-content-center w-100 show active" id="indi_home_pane" tabindex="0" role="tabpanel">
+            <div class="tab-pane align-items-center justify-content-center show active" id="indi_home_pane" tabindex="0" role="tabpanel">
 
                 <indi-home />
 
             </div>
 
-            <div class="tab-pane align-items-center justify-content-center w-100 xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
+            <div class="tab-pane align-items-center justify-content-center xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
                 <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
 
@@ -141,7 +141,7 @@ onMounted(() => indiStore.setup(terminalDiv.value));
                             <i class="bi bi-card-text"></i>
                             {{ indiStore.currentDeviceName }}
                             [
-                                <button class="btn btn-xs btn-secondary" type="button" @click="indiStore.clearMessages()">
+                                <button class="btn btn-xs btn-secondary" type="button" @click="indiStore.clearTerminal()">
                                     <i class="bi bi-trash"></i>
                                     empty
                                 </button>
@@ -168,6 +168,7 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 .tab-content,
 .tab-pane.show {
     display: flex !important;
+    width: 100%;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/

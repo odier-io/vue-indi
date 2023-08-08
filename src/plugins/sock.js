@@ -42,45 +42,25 @@ const _update_func = (endpoint, token) => {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        _client.on('connect', () => {
+        const f = (connected) => {
 
-            _connected = true;
-
-            _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
-
-            if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
-
-                callback(true);
-            });
-        });
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        _client.on('reconnect', () => {
-
-            _connected = true;
+            _connected = connected;
 
             _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
 
             if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
 
-                callback(true);
+                callback(connected);
             });
-        });
+        };
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        _client.on('disconnect', () => {
+        _client.on('connect', () => f(true));
 
-            _connected = false;
+        _client.on('reconnect', () => f(true));
 
-            ///////.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
-
-            if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
-
-                callback(false);
-            });
-        });
+        _client.on('disconnect', () => f(false));
 
         /*------------------------------------------------------------------------------------------------------------*/
 

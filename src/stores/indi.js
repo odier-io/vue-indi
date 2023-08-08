@@ -93,7 +93,7 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        clearMessages()
+        clearTerminal()
         {
             terminal.clear();
 
