@@ -97,7 +97,7 @@ const deviceUp = (device1) => {
     <div class="card mx-auto mb-3">
         <div class="card-header px-3 py-2">
             <i class="bi bi-cpu"></i>
-            deviceDict
+            Device
             [
                 <button class="btn btn-xs btn-primary" type="button" @click="deviceAppend()">
                     <i class="bi bi-plus-lg"></i>
@@ -143,10 +143,10 @@ const deviceUp = (device1) => {
                                 </button>
                             </td>
                             <td class="text-center">
-                                <typeahead class="form-control form-control-sm" :options="indiStore.categories" v-model="device.category" />
+                                <typeahead class="form-control form-control-sm" :options="indiStore.categoryDefs" v-model="device.category" />
                             </td>
                             <td class="text-center">
-                                <typeahead class="form-control form-control-sm" :options="indiStore.categories" v-model="device.device" />
+                                <typeahead class="form-control form-control-sm" :options="indiStore.deviceDefs" v-model="device.device" />
                             </td>
                         </tr>
                     </tbody>
