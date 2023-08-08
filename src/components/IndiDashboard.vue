@@ -24,7 +24,7 @@ const devices = computed(() => {
 
     const result = {};
 
-    indiStore.defXXXVectors.forEach((defXXXVector) => {
+    Object.values(indiStore.defXXXVectorDict).forEach((defXXXVector) => {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
