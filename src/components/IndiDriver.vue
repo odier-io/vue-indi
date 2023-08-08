@@ -13,10 +13,10 @@ const indiStore = useIndiStore();
 
 const categories = [
     'Mount',
-    'Main Camera',
+    'Main camera',
     'Guiding camera',
     'Focuser',
-    'Filter',
+    'Filters',
     'Dome',
     'Weather',
     'Aux 1',
