@@ -53,7 +53,7 @@ const categories = {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(name, label) in categories" :key="label">
+                        <tr v-for="(label, name) in categories" :key="name">
                             <td>{{label}}</td>
                             <td><typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="indiStore.devices[name]"></typeahead></td>
                         </tr>
