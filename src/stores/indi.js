@@ -9,23 +9,15 @@ import 'xterm/css/xterm.css';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const DEVICE_CATEGORIES = {
-    'dome': 'Dome',
-    'mount': 'Mount',
-    'imaging_camera': 'Imaging camera',
-    'guiding_camera': 'Guiding camera',
-    'focuser': 'Focuser',
-    'filters': 'Filters',
-    'weather': 'Weather',
-    'aux1': 'Aux 1',
-    'aux2': 'Aux 2',
-    'aux3': 'Aux 3',
-    'aux4': 'Aux 4',
-    'aux5': 'Aux 5',
-    'aux6': 'Aux 6',
-    'aux7': 'Aux 7',
-    'aux8': 'Aux 8',
-};
+const CATEGORIES = [
+    {value: 'dome', label: 'Dome'},
+    {value: 'mount', label: 'Mount'},
+    {value: 'imaging_camera', label: 'Imaging camera'},
+    {value: 'guiding_camera', label: 'Guiding camera'},
+    {value: 'focuser', label: 'Focuser'},
+    {value: 'filters', label: 'Filters'},
+    {value: 'weather', label: 'Weather'},
+];
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -54,9 +46,9 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        deviceCategories()
+        categories()
         {
-            return DEVICE_CATEGORIES;
+            return CATEGORIES;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/

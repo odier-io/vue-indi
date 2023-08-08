@@ -143,11 +143,7 @@ const deviceUp = (device1) => {
                                 </button>
                             </td>
                             <td class="text-center">
-                                <select class="form-select form-select-sm" v-model="device.category">
-                                    <option :value="value" v-for="(label, value) in indiStore.deviceCategories" :key="name">
-                                        {{label}}
-                                    </option>
-                                </select>
+                                <typeahead class="form-control form-control-sm" :options="indiStore.categories" v-model="device.category" />
                             </td>
                             <td class="text-center">
                                 <typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="device.driver" />
