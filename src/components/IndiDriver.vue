@@ -1,6 +1,10 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import { v4 as uuidV4 } from 'uuid';
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 import useIndiStore from '../stores/indi';
 
 import typeahead from '../components/typeahead/typeahead.vue';
@@ -11,25 +15,40 @@ const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+let rank = 0;
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const deviceAppend = () => {
 
+    const id = uuidV4();
+
+    indiStore.devices[id] = {
+        id: id,
+        rank: rank,
+        category: '',
+        driver: '',
+    };
+
+    rank++;
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const deviceRemove = () => {
+const deviceRemove = (device) => {
+
+    delete indiStore.devices[device.id];
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+const deviceDw = (device) => {
 
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const deviceDw = () => {
-
-};
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-const deviceUp = () => {
+const deviceUp = (device) => {
 
 };
 
@@ -78,13 +97,13 @@ const deviceUp = () => {
                     <tbody>
                         <tr v-for="device in indiStore.devices">
                             <td class="text-center">
-                                <button class="btn btn-sm btn-link" type="button" @click="deviceDw()">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceDw(device)">
                                     <i class="bi bi-caret-up-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="deviceUp()">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceUp(device)">
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
-                                <button class="btn btn-sm btn-link" type="button" @click="deviceRemove()">
+                                <button class="btn btn-sm btn-link" type="button" @click="deviceRemove(device)">
                                     <i class="bi bi-trash2 text-danger"></i>
                                 </button>
                             </td>
