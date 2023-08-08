@@ -9,6 +9,26 @@ import 'xterm/css/xterm.css';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+const DEVICE_CATEGORIES = {
+    'dome': 'Dome',
+    'mount': 'Mount',
+    'camera1': 'Main camera',
+    'camera2': 'Guiding camera',
+    'focuser': 'Focuser',
+    'filters': 'Filters',
+    'weather': 'Weather',
+    'aux1': 'Aux 1',
+    'aux2': 'Aux 2',
+    'aux3': 'Aux 3',
+    'aux4': 'Aux 4',
+    'aux5': 'Aux 5',
+    'aux6': 'Aux 6',
+    'aux7': 'Aux 7',
+    'aux8': 'Aux 8',
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -18,15 +38,13 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        const devices = Object.keys(this.deviceCategories).reduce((dict, category) => {
+        const devices = Object.keys(DEVICE_CATEGORIES).reduce((dict, category) => {
 
             dict[category] = '';
 
             return dict;
 
         }, {});
-
-        alert(JSON.stringify(devices));
 
         /*------------------------------------------------------------------------------------------------------------*/
 
@@ -48,30 +66,7 @@ const useIndiStore = defineStore('indi', {
 
         deviceCategories()
         {
-            return {
-                'dome': 'Dome',
-                'mount': 'Mount',
-                'camera1': 'Main camera',
-                'camera2': 'Guiding camera',
-                'focuser': 'Focuser',
-                'filters': 'Filters',
-                'weather': 'Weather',
-                'aux1': 'Aux 1',
-                'aux2': 'Aux 2',
-                'aux3': 'Aux 3',
-                'aux4': 'Aux 4',
-                'aux5': 'Aux 5',
-                'aux6': 'Aux 6',
-                'aux7': 'Aux 7',
-                'aux8': 'Aux 8',
-            };
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        defXXXVectors()
-        {
-            return Object.values(this.defXXXVectorDict);
+            return DEVICE_CATEGORIES;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -80,7 +75,9 @@ const useIndiStore = defineStore('indi', {
         {
             const result = {};
 
-            this.defXXXVectors.forEach((defXXXVector) => {
+            const defXXXVectors = Object.values(this.defXXXVectorDict);
+
+            defXXXVectors.forEach((defXXXVector) => {
 
                 if(defXXXVector['<>'] === 'defTextVector'
                    ||
