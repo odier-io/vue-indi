@@ -90,7 +90,7 @@ const _processMessage_func = (message) => {
 
         else if(message['<>'] === 'drivers' && 'driver_list' in message)
         {
-            indiStore.drivers = message['driver_list'].map(driver => ({
+            indiStore.driverDefs = message['driver_list'].map(driver => ({
                 value: `indi_${driver}`,
                 label: driver
             }));
