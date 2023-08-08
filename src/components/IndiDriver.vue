@@ -17,9 +17,12 @@ const indiStore = useIndiStore();
     <!-- *********************************************************************************************************** -->
 
     <div class="card mx-auto mb-3">
-        <div class="card-header px-3 py-2">
+        <div class="card-header d-flex px-3 py-2">
             <i class="bi bi-cpu"></i>
             Drivers
+            <button class="btn btn-xs btn-primary ms-auto" type="button" @click="">
+                <i class="bi bi-plus-lg"></i> Add device
+            </button>
         </div>
         <div class="card-body px-3 py-2">
 
@@ -31,19 +34,14 @@ const indiStore = useIndiStore();
 
                     <thead>
                         <tr>
-                            <th class="text-start" style="width: 80px;">
+                            <th class="text-start" style="width: 100px;">
                                 Order
                             </th>
-                            <th class="text-start" style="width: calc(50% - 100px);">
+                            <th class="text-start" style="width: calc(50% - 50px);">
                                 Device
                             </th>
-                            <th class="text-start" style="width: calc(50% - 100px);">
+                            <th class="text-start" style="width: calc(50% - 50px);">
                                 Driver
-                            </th>
-                            <th class="text-center" style="width: 120px;">
-                                <button class="btn btn-xs btn-primary" type="button" @click="">
-                                    <i class="bi bi-plus-lg"></i> Add device
-                                </button>
                             </th>
                         </tr>
                     </thead>
@@ -59,6 +57,9 @@ const indiStore = useIndiStore();
                                 <button class="btn btn-sm btn-link" type="button" @click="">
                                     <i class="bi bi-caret-down-fill"></i>
                                 </button>
+                                <button class="btn btn-sm btn-danger" type="button" @click="">
+                                    <i class="bi bi-trash2"></i>
+                                </button>
                             </td>
                             <td class="text-center">
                                 <select class="form-select form-select-sm">
@@ -67,11 +68,6 @@ const indiStore = useIndiStore();
                             </td>
                             <td class="text-center">
                                 <typeahead class="form-control form-control-sm" :options="indiStore.drivers" v-model="indiStore.devices[name]"></typeahead>
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-sm btn-danger" type="button" @click="">
-                                    <i class="bi bi-trash2"></i>
-                                </button>
                             </td>
                         </tr>
                     </tbody>
