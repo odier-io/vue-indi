@@ -143,7 +143,7 @@ const deviceUp = (device1) => {
                                 </button>
                             </td>
                             <td class="text-center">
-                                <typeahead class="form-control form-control-sm" mode="select" :options="indiStore.categoryDefs" v-model="device.category" />
+                                <typeahead class="form-select form-select-sm" mode="select" :options="indiStore.categoryDefs" v-model="device.category" />
                             </td>
                             <td class="text-center">
                                 <typeahead class="form-control form-control-sm" mode="typeahead" :options="indiStore.deviceDefs" v-model="device.device" />
