@@ -8,6 +8,8 @@ let _client = null;
 let _endpoint = null;
 let _connected = false;
 
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const _callbackDict = {};
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -88,6 +90,10 @@ const _setConnectionCallback_func = (callback) => _subscribe_func('$connection$'
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+const _unsetConnectionCallback_func = (callback) => _unsubscribe_func('$connection$', callback);
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 const _subscribe_func = (topic, callback) => {
 
     let set;
@@ -138,12 +144,13 @@ export default {
     install(app)
     {
         app.provide('sock', {
-            connected            : _connected_func            ,
-            update               : _update_func               ,
-            setConnectionCallback: _setConnectionCallback_func,
-            subscribe            : _subscribe_func            ,
-            unsubscribe          : _unsubscribe_func          ,
-            emit                 : _emit_func                 ,
+            connected              : _connected_func              ,
+            update                 : _update_func                 ,
+            setConnectionCallback  : _setConnectionCallback_func  ,
+            unsetConnectionCallback: _unsetConnectionCallback_func,
+            subscribe              : _subscribe_func              ,
+            unsubscribe            : _unsubscribe_func            ,
+            emit                   : _emit_func                   ,
         });
     }
 };

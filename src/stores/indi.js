@@ -31,13 +31,12 @@ const useIndiStore = defineStore('indi', {
         /*------------------------------------------------------------------------------------------------------------*/
 
         return {
-            driverDefs: [],
-            driverDict: {},
-            deviceDict: {},
-            /**/
             offOnSwitch: 'off',
             currentDeviceName: '---',
             /**/
+            driverDefs: [],
+            driverDict: {},
+            deviceDict: {},
             messageDict: {},
             defXXXVectorDict: {},
         };
@@ -75,9 +74,9 @@ const useIndiStore = defineStore('indi', {
                    ||
                    defXXXVector['<>'] === 'defNumberVector'
 
-                ) defXXXVector['children'].forEach((defXXXX) => {
+                ) defXXXVector['children'].forEach((defXXX) => {
 
-                    result[`${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXXX['@name']}`] = defXXXX['$'];
+                    result[`${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXX['@name']}`] = defXXX['$'];
                 });
             });
 
@@ -105,11 +104,11 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        updateTerminal(newDeviceName)
+        updateTerminal(newDeviceName = null)
         {
             terminal.clear();
 
-            if(typeof newDeviceName !== 'undefined')
+            if(newDeviceName)
             {
                 this.currentDeviceName = newDeviceName;
             }

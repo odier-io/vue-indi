@@ -22,7 +22,9 @@ const terminalDiv = ref(null);
 
 const devices = computed(() => {
 
-    const result = {};
+    const result = {
+        'home': {}
+    };
 
     Object.values(indiStore.defXXXVectorDict).forEach((defXXXVector) => {
 

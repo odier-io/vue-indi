@@ -22,19 +22,19 @@ const _processMessage_func = (message) => {
         {
             indiStore.defXXXVectorDict[_buildKey(message)] = message;
 
-            message['children'].forEach((defXXXX) => {
+            message['children'].forEach((defXXX) => {
 
-                if('@format' in defXXXX)
+                if('@format' in defXXX)
                 {
-                    const m = /%\d*(?:\.(\d+))?f/.exec(defXXXX['@format'].toString());
+                    const m = /%\d*(?:\.(\d+))?f/.exec(defXXX['@format'].toString());
 
-                    defXXXX['$'] = (m && typeof m[1] !== 'undefined') ? defXXXX['$']
-                                                                            = parseFloat(defXXXX['$'].toString()).toFixed(parseInt(m[1])).toString()
-                                                                      : defXXXX['$']
+                    defXXX['$'] = (m && typeof m[1] !== 'undefined') ? defXXX['$']
+                                                                            = parseFloat(defXXX['$'].toString()).toFixed(parseInt(m[1])).toString()
+                                                                     : defXXX['$']
                     ;
                 }
 
-                defXXXX['@orig'] = defXXXX['$'];
+                defXXX['@orig'] = defXXX['$'];
             });
         }
 
