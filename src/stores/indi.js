@@ -9,7 +9,7 @@ import 'xterm/css/xterm.css';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const CATEGORIES = [
+const CATEGORY_DEFS = [
     {value: 'dome', label: 'Dome'},
     {value: 'mount', label: 'Mount'},
     {value: 'imaging_camera', label: 'Imaging camera'},
@@ -50,7 +50,7 @@ const useIndiStore = defineStore('indi', {
 
         categoryDefs()
         {
-            return CATEGORIES;
+            return CATEGORY_DEFS;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
