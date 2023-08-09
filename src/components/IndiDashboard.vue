@@ -23,7 +23,7 @@ const terminalDiv = ref(null);
 const devices = computed(() => {
 
     const result = {
-        'home': {}
+        'Home': {}
     };
 
     Object.values(indiStore.defXXXVectorDict).forEach((defXXXVector) => {
@@ -84,15 +84,6 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <li class="nav-item" role="presentation">
-
-                <button class="nav-link active px-3 py-2" type="button" data-bs-toggle="tab" data-bs-target="#indi_home_pane" role="tab">
-                    <i class="bi bi-house"></i>
-                    Home
-                </button>
-
-            </li>
-
             <li class="nav-item" role="presentation" v-for="(deviceName, deviceIndex) in Object.keys(devices)" :key="deviceIndex">
 
                 <button class="nav-link xxxxxx px-3 py-2" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
@@ -112,15 +103,9 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <div class="tab-pane align-items-center justify-content-center show active" id="indi_home_pane" tabindex="0" role="tabpanel">
-
-                <indi-home />
-
-            </div>
-
             <div class="tab-pane align-items-center justify-content-center xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
-                <indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" />
+                <indi-home v-if="deviceName === 'Home'" /><indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" v-else />
 
             </div>
 
