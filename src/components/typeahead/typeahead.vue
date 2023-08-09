@@ -54,7 +54,7 @@ const updateValue = (value) => {
 
     <!-- *********************************************************************************************************** -->
 
-    <div class="dropdown" v-bind="$attrs">
+    <div class="dropdown position-static" v-bind="$attrs">
 
         <input type="text" :value="localModelValue" @input="updateValue($event.target.value)" data-bs-toggle="dropdown" />
 
@@ -82,12 +82,6 @@ input {
     padding: 0;
     outline: none;
     width: 100%;
-}
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-.dropdown {
-    position: static;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
