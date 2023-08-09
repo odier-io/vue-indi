@@ -139,7 +139,7 @@ const driverUp = (driver1) => {
                                 </button>
                             </td>
                             <td class="text-center">
-                                <typeahead class="form-control form-control-sm" :options="indiStore.driverDefs" v-model="driver.driver" />
+                                <typeahead class="form-control form-control-sm" mode="typeahead" :options="indiStore.driverDefs" v-model="driver.driver" />
                             </td>
                         </tr>
                     </tbody>
