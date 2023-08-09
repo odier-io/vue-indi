@@ -9,6 +9,8 @@ import { v4 as uuidV4 } from 'uuid';
 
 import useIndiStore from '../stores/indi';
 
+import typeahead from '../components/typeahead/typeahead.vue';
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const indiStore = useIndiStore();
@@ -141,14 +143,10 @@ const deviceUp = (device1) => {
                                 </button>
                             </td>
                             <td class="text-center">
-                                <select class="form-select form-select-sm" v-model="device.category">
-                                    <option :value="category.value" v-for="category in indiStore.categoryDefs">{{category.label}}</option>
-                                </select>
+                                <typeahead class="form-control form-control-sm" mode="typeahead" :options="indiStore.categoryDefs" v-model="device.category" />
                             </td>
                             <td class="text-center">
-                                <select class="form-select form-select-sm" v-model="device.device">
-                                    <option :value="device.value" v-for="device in indiStore.deviceDefs">{{device.label}}</option>
-                                </select>
+                                <typeahead class="form-control form-control-sm" mode="select" :options="indiStore.deviceDefs" v-model="device.device" />
                             </td>
                         </tr>
                     </tbody>

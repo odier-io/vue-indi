@@ -18,6 +18,11 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    mode: {
+        type: String,
+        default: 'select',
+        validator: (mode) => mode === 'select' || mode === 'typeahead',
+    },
     options: {
         type: Array,
         default: () => [],
@@ -28,6 +33,8 @@ const props = defineProps({
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const localModelValue = ref(props.modelValue);
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 watch(() => props.modelValue, (value) => {
 
@@ -53,18 +60,32 @@ const updateValue = (value) => {
 <template>
 
     <!-- *********************************************************************************************************** -->
+    <!-- MODE SELECT                                                                                                 -->
+    <!-- *********************************************************************************************************** -->
 
-    <div class="dropdown position-static" v-bind="$attrs">
+    <select v-bind="$attrs" v-if="mode === 'select'" :value="localModelValue" @input="updateValue($event.target.value)">
+        <option :value="option.value" v-for="option in options">{{option.label}}</option>
+    </select>
 
-        <input type="text" :value="localModelValue" @input="updateValue($event.target.value)" data-bs-toggle="dropdown" />
+    <!-- *********************************************************************************************************** -->
+    <!-- MODE TYPEAHEAD                                                                                              -->
+    <!-- *********************************************************************************************************** -->
 
-        <ul class="dropdown-menu">
-            <li v-for="option in filteredOptions">
-                <a class="dropdown-item" href="#" @click.prevent="updateValue(option.value)">
-                    {{option.label}}
-                </a>
-            </li>
-        </ul>
+    <div v-bind="$attrs" v-if="mode === 'typeahead'">
+
+        <div class="dropdown position-static">
+
+            <input type="text" :value="localModelValue" @input="updateValue($event.target.value)" data-bs-toggle="dropdown" />
+
+            <ul class="dropdown-menu">
+                <li v-for="option in filteredOptions">
+                    <a class="dropdown-item" href="#" @click.prevent="updateValue(option.value)">
+                        {{option.label}}
+                    </a>
+                </li>
+            </ul>
+
+        </div>
 
     </div>
 
