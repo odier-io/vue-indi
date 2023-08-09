@@ -36,7 +36,7 @@ watch(() => props.modelValue, (value) => {
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.label.includes(localModelValue.value)).sort((x, y) => x.label.toLowerCase().localeCompare(y.label.toLowerCase())));
+const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.value.includes(localModelValue.value) || option.label.includes(localModelValue.value)).sort((x, y) => x.label.toLowerCase().localeCompare(y.label.toLowerCase())));
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -91,7 +91,7 @@ input {
 }
 
 .dropdown-menu {
-    position: absolute;
+    #position: absolute;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------*/
