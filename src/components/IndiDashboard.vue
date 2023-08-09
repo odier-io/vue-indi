@@ -86,7 +86,7 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
             <li class="nav-item" role="presentation" v-for="(deviceName, deviceIndex) in Object.keys(devices)" :key="deviceIndex">
 
-                <button class="nav-link xxxxxx px-3 py-2" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
+                <button :class="`nav-link ${deviceIndex === 0 ? 'active' : ''} px-3 py-2`" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
                     <i class="bi bi-diamond"></i>
                     {{ deviceName }}
                 </button>
@@ -103,7 +103,7 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
             <!-- *************************************************************************************************** -->
 
-            <div class="tab-pane align-items-center justify-content-center xxxx xxxxxx" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
+            <div :class="`tab-pane align-items-center justify-content-center ${deviceIndex === 0 ? 'show active' : ''}`" :id="`indi_device_pane_${deviceIndex}`" tabindex="0" role="tabpanel" v-for="(deviceInfo, deviceName, deviceIndex) in devices" :key="deviceName">
 
                 <indi-home v-if="deviceName === 'Home'" /><indi-device :device-name="deviceName" :device-info="deviceInfo" :device-index="deviceIndex" v-else />
 
@@ -154,7 +154,7 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 
 .tab-content,
 .tab-pane.show {
-    display: flex !important;
+    display: flex;
     width: 100%;
 }
 
