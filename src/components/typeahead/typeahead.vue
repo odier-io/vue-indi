@@ -36,14 +36,17 @@ const localModelValue = ref(props.modelValue);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watch(() => props.modelValue, (value) => {
+watch(() => props.modelValue, (modelValue) => {
 
-    localModelValue.value = value;
+    localModelValue.value = modelValue;
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const filteredOptions = computed(() => props.options.filter((option) => !localModelValue.value || option.value.includes(localModelValue.value) || option.label.includes(localModelValue.value)).sort((x, y) => x.label.toLowerCase().localeCompare(y.label.toLowerCase())));
+const filteredOptions = computed(() => props
+    .options.filter((option) => !localModelValue.value || option.value.includes(localModelValue.value) || option.label.includes(localModelValue.value))
+    .sort((option1, option2) => option1.label.toLowerCase().localeCompare(option2.label.toLowerCase()))
+);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
@@ -64,7 +67,9 @@ const updateValue = (value) => {
     <!-- *********************************************************************************************************** -->
 
     <select v-bind="$attrs" v-if="mode === 'select'" :value="localModelValue" @input="updateValue($event.target.value)">
-        <option :value="option.value" v-for="option in options">{{option.label}}</option>
+        <option :value="option.value" v-for="option in options">
+            {{option.label}}
+        </option>
     </select>
 
     <!-- *********************************************************************************************************** -->
