@@ -26,8 +26,8 @@ const indiStore = useIndiStore();
                 <table class="table table-sm table-striped">
                     <thead>
                         <tr>
-                            <th>Variable</th>
-                            <th>Value</th>
+                            <th style="width: 66.66%;">Variable</th>
+                            <th style="width: 33.33%;">Value</th>
                         </tr>
                     </thead>
                     <tbody>
