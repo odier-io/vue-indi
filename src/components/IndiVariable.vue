@@ -32,7 +32,7 @@ const indiStore = useIndiStore();
                     </thead>
                     <tbody>
                         <tr v-for="(value, name) in indiStore.variables" :key="name">
-                            <td>${<i>{{name}}</i>}</td>
+                            <td>{{name}}</td>
                             <td>{{value}}</td>
                         </tr>
                     </tbody>

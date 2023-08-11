@@ -76,7 +76,7 @@ const useIndiStore = defineStore('indi', {
 
                 ) defXXXVector['children'].forEach((defXXX) => {
 
-                    result[`${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXX['@name']}`] = defXXX['$'];
+                    result[`\${${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXX['@name']}}`] = defXXX['$'];
                 });
             });
 
