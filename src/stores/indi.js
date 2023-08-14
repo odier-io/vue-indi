@@ -76,17 +76,10 @@ const useIndiStore = defineStore('indi', {
         {
             const result = {};
 
-            Object.values(this.defXXXVectorDict).forEach((defXXXVector) => {
+            Object.values(this.defXXXVectorDict).forEach((defXXXVector) => defXXXVector['children'].forEach((defXXX) => {
 
-                if(defXXXVector['<>'] === 'defTextVector'
-                   ||
-                   defXXXVector['<>'] === 'defNumberVector'
-
-                ) defXXXVector['children'].forEach((defXXX) => {
-
-                    result[`\${${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXX['@name']}}`] = defXXX['$'];
-                });
-            });
+                result[`${defXXXVector['@device']}:${defXXXVector['@name']}:${defXXX['@name']}`] = defXXX['$'];
+            }));
 
             return result;
         }
@@ -99,6 +92,22 @@ const useIndiStore = defineStore('indi', {
         setup(div)
         {
             terminal.open(div);
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        resolve(category, variableName, startsWith = false)
+        {
+            const names = Object.values(this.deviceDict).filter((device) => device.category === category).map((device) => `${device.device}:${variableName}`);
+
+            if(names.length > 0)
+            {
+                return startsWith ? Object.entries(this.variables).filter((variable) => variable[0].startsWith(names[0])).map((variable) => variable[1])
+                                  : Object.entries(this.variables).filter((variable) => variable[0]    ===    (names[0])).map((variable) => variable[1])
+                ;
+            }
+
+            return [];
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
