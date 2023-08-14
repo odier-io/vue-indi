@@ -100,13 +100,14 @@ const useIndiStore = defineStore('indi', {
         {
             const names = Object.values(this.deviceDict).filter((device) => device.category === category).map((device) => `${device.device}:${variableName}`);
 
-            console.log(names);
-
             if(names.length > 0)
             {
-                return startsWith ? Object.entries(this.variables).filter((variable) => variable[0].startsWith(names[0])).map((variable) => variable[1])
+                const q= startsWith ? Object.entries(this.variables).filter((variable) => variable[0].startsWith(names[0])).map((variable) => variable[1])
                                   : Object.entries(this.variables).filter((variable) => variable[0]    ===    (names[0])).map((variable) => variable[1])
                 ;
+
+                console.log(q);
+                return q;
             }
 
             return [];
