@@ -93,7 +93,7 @@ onMounted(() => indiStore.setup(terminalDiv.value));
             <li class="nav-item" role="presentation" v-for="(deviceName, deviceIndex) in Object.keys(devices)" :key="deviceIndex">
 
                 <button :class="`nav-link ${deviceIndex === 0 ? 'active' : ''} px-3 py-2`" type="button" data-bs-toggle="tab" :data-bs-target="`#indi_device_pane_${deviceIndex}`" role="tab">
-                    <i class="bi bi-diamond"></i>
+                    <i class="bi bi-command"></i>
                     {{ deviceName }}
                 </button>
 
