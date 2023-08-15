@@ -45,7 +45,7 @@ const filteredVariables = computed(() => {
 
             <!-- *************************************************************************************************** -->
 
-            <div class="input-group input-group-sm mb-2">
+            <div class="input-group mb-2">
                 <span class="input-group-text">
                     <i class="bi bi-funnel"></i>
                     Filter
