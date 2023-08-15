@@ -6,6 +6,8 @@ import { ref, watch, computed, defineProps, defineEmits } from 'vue';
 import 'bootstrap/js/src/dropdown';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+/* VARIABLES                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 const emit = defineEmits([
     'update:modelValue'
@@ -36,17 +38,19 @@ const localModelValue = ref(props.modelValue);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-watch(() => props.modelValue, (modelValue) => {
-
-    localModelValue.value = modelValue;
-});
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
 const filteredOptions = computed(() => props
     .options.filter((option) => !localModelValue.value || option.value.includes(localModelValue.value) || option.label.includes(localModelValue.value))
     .sort((option1, option2) => option1.label.toLowerCase().localeCompare(option2.label.toLowerCase()))
 );
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* FUNCTIONS                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+watch(() => props.modelValue, (modelValue) => {
+
+    localModelValue.value = modelValue;
+});
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 

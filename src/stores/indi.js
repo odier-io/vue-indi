@@ -8,6 +8,8 @@ import { Terminal } from 'xterm';
 import 'xterm/css/xterm.css';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+/* VARIABLES                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 const CATEGORY_DEFS = [
     {value: 'weather', label: 'Weather'},
@@ -29,8 +31,10 @@ const CATEGORY_DEFS = [
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const terminal = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
+const TERMINAL = new Terminal({convertEol: true, fontFamily: 'Ubuntu Mono, courier-new, courier, monospace'});
 
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* STORE                                                                                                              */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const useIndiStore = defineStore('indi', {
@@ -91,7 +95,7 @@ const useIndiStore = defineStore('indi', {
 
         setup(div)
         {
-            terminal.open(div);
+            TERMINAL.open(div);
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
@@ -114,7 +118,7 @@ const useIndiStore = defineStore('indi', {
 
         clearTerminal()
         {
-            terminal.clear();
+            TERMINAL.clear();
 
             this.messageDict[this.currentDeviceName].length = 0;
         },
@@ -123,7 +127,7 @@ const useIndiStore = defineStore('indi', {
 
         updateTerminal(newDeviceName = null)
         {
-            terminal.clear();
+            TERMINAL.clear();
 
             if(newDeviceName)
             {
@@ -132,7 +136,7 @@ const useIndiStore = defineStore('indi', {
 
             if(this.currentDeviceName in this.messageDict)
             {
-                this.messageDict[this.currentDeviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => terminal.writeln(line));
+                this.messageDict[this.currentDeviceName].map((x) => `${x.timestamp} - ${x.message}`).forEach((line) => TERMINAL.writeln(line));
             }
         },
 

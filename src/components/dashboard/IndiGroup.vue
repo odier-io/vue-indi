@@ -7,6 +7,8 @@ import IndiSwitchVector from '../controls/IndiSwitchVector.vue';
 import IndiLightVector from '../controls/IndiLightVector.vue';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+/* VARIABLES                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 defineProps({
     groupInfo: {
