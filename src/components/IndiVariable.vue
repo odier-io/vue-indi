@@ -23,12 +23,17 @@ const indiStore = useIndiStore();
         </div>
         <div class="card-body px-3 py-2">
 
+            <!-- *************************************************************************************************** -->
+
             <div class="input-group mb-3">
                 <span class="input-group-text">
+                    <i class="bi bi-funnel"></i>
                     Filter
                 </span>
                 <input class="form-control form-control-sm" type="text" />
             </div>
+
+            <!-- *************************************************************************************************** -->
 
             <div class="table-responsive" style="max-height: 450px; overflow-y: scroll;">
 
@@ -48,6 +53,8 @@ const indiStore = useIndiStore();
                 </table>
 
             </div>
+
+            <!-- *************************************************************************************************** -->
 
         </div>
     </div>
