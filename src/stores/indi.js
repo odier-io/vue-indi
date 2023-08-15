@@ -106,13 +106,14 @@ const useIndiStore = defineStore('indi', {
 
             if(names.length > 0)
             {
-                return startsWith ? Object.entries(this.variables).filter((variable) => variable[0].startsWith(names[0])).map((variable) => variable[1])
-                                  : Object.entries(this.variables).filter((variable) => variable[0]    ===    (names[0])).map((variable) => variable[1])
-                                    [0] || null
+                return startsWith ? Object.entries(this.variables).filter((variable) => variable[0].startsWith(names[0])).map((variable) => variable[1])///
+                                  : Object.entries(this.variables).filter((variable) => variable[0]    ===    (names[0])).map((variable) => variable[1])[0]
                 ;
             }
 
-            return [];
+            return startsWith ? [  ]
+                              : null
+            ;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
