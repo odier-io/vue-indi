@@ -23,12 +23,10 @@ const filter = ref('');
 
 const filteredVariables = computed(() => {
 
-    if(!filter.value)
-    {
-        return indiStore.variables;
-    }
-
-    return Object.fromEntries(Object.entries(indiStore.variables).filter((entry) => entry[0].toLowerCase().includes(filter.value.toLowerCase())));
+    return Object.fromEntries(Object.entries(indiStore.variables)
+        .sort(([name1], [name2]) => name1.localeCompare(name2))
+        .filter(([name]) => !filter.value || name.toLowerCase().includes(filter.value.toLowerCase())
+    ));
 });
 
 /*--------------------------------------------------------------------------------------------------------------------*/
