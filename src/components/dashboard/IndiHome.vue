@@ -23,7 +23,7 @@ const sock = inject('sock');
 
 const serverStart = () => {
 
-    alert(JSON.stringify(deviceDict));
+    alert(JSON.stringify(indiStore.deviceDict));
 
     Object.keys(indiStore.defXXXVectorDict).forEach((key) => delete indiStore.defXXXVectorDict[key]);
 
