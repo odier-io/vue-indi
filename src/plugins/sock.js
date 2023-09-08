@@ -50,8 +50,6 @@ const _update_func = (endpoint, token) => {
 
         const f = (connected) => {
 
-                alert(_endpoint);
-
             _connected = connected;
 
             _client.emit('indi', '{"<>": "getProperties", "@version": "1.7"}');
