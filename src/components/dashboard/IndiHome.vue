@@ -42,17 +42,14 @@ const serverStop = () => {
             <div class="row">
                 <div class="col-md-6 text-center align-self-center">
 
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <div class="btn-group btn-group-sm w-75" role="group">
 
-                        <input type="radio" class="btn-check" name="D0129CB6" id="DE92759F" autocomplete="off" value="off" :value="indiStore.isOn ? 'off' : 'on'" @change="serverStart">
-                        <label class="btn btn-secondary" for="DE92759F">
+                        <button :class="!indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-primary'" style="width: 50%;" @change="serverStop">
                             Turn off devices
-                        </label>
-
-                        <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off" value="on" :value="indiStore.isOn ? 'on' : 'off'" @change="serverStop">
-                        <label class="btn btn-primary" for="D8FB7C2E">
+                        </button>
+                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-primary'" style="width: 50%;" @change="serverStart">
                             Turn on devices
-                        </label>
+                        </button>
 
                     </div>
 
