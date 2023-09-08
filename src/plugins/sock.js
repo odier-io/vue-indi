@@ -24,6 +24,8 @@ const _connected_func = () => _client && _endpoint && _connected;
 
 const _update_func = (endpoint, token) => {
 
+    alert(endpoint);
+
     /*----------------------------------------------------------------------------------------------------------------*/
 
     if(_client)
