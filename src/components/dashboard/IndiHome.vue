@@ -44,10 +44,10 @@ const serverStop = () => {
 
                     <div class="btn-group btn-group-sm w-75" role="group">
 
-                        <button :class="!indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-primary'" style="width: 50%;" @change="serverStop">
+                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-secondary'" style="width: 50%;" @click="serverStop">
                             Turn off devices
                         </button>
-                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-primary'" style="width: 50%;" @change="serverStart">
+                        <button :class="!indiStore.isOn ? 'btn btn-outline-primary' : 'btn btn-primary'" style="width: 50%;" @click="serverStart">
                             Turn on devices
                         </button>
 
