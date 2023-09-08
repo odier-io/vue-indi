@@ -24,8 +24,6 @@ const _connected_func = () => _client && _endpoint && _connected;
 
 const _update_func = (endpoint, token) => {
 
-    alert(endpoint);
-
     /*----------------------------------------------------------------------------------------------------------------*/
 
     if(_client)
@@ -33,8 +31,6 @@ const _update_func = (endpoint, token) => {
         if(_endpoint !== endpoint)
         {
             try { _client.disconnect(); } catch (_) { /* IGNORE */ }
-
-            _endpoint = endpoint;
         }
         else
         {
@@ -48,11 +44,13 @@ const _update_func = (endpoint, token) => {
     {
         /*------------------------------------------------------------------------------------------------------------*/
 
-        _client = io(endpoint, {path: '/api/socket.io'});
+        _client = io(_endpoint = endpoint, {path: '/api/socket.io'});
 
         /*------------------------------------------------------------------------------------------------------------*/
 
         const f = (connected) => {
+
+                alert(_endpoint);
 
             _connected = connected;
 
