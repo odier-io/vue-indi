@@ -67,10 +67,17 @@ const useIndiStore = defineStore('indi', {
 
         deviceDefs()
         {
-            return [...new Set(Object.values(this.defXXXVectorDict).map(v => v['@device']))].map(device => ({
+            return [...new Set(Object.values(this.defXXXVectorDict).map(x => x['@device']))].map(device => ({
                 value: device,
                 label: device,
             }));
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        drivers()
+        {
+            return Object.values(this.driverDict).map(x => x.driver);
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
