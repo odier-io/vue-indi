@@ -164,7 +164,6 @@ onMounted(() => indiStore.setup(terminalDiv.value));
 <style scoped>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-
 .tab-content,
 .tab-pane.show {
     display: flex;

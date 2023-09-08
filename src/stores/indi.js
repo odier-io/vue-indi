@@ -43,7 +43,6 @@ const useIndiStore = defineStore('indi', {
         /*------------------------------------------------------------------------------------------------------------*/
 
         return {
-            offOnSwitch: 'off',
             currentDeviceName: '---',
             /**/
             driverDefs: [],
