@@ -23,12 +23,20 @@ const sock = inject('sock');
 
 const serverStart = () => {
 
+    Object.keys(indiStore.defXXXVectorDict).forEach((key) => delete indiStore.defXXXVectorDict[key]);
+
+    Object.keys(indiStore.messageDict).forEach((key) => delete indiStore.messageDict[key]);
+
     sock.emit('indi', '{"<>": "startIndiServer"}');
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const serverStop = () => {
+
+    Object.keys(indiStore.defXXXVectorDict).forEach((key) => delete indiStore.defXXXVectorDict[key]);
+
+    Object.keys(indiStore.messageDict).forEach((key) => delete indiStore.messageDict[key]);
 
     sock.emit('indi', '{"<>": "stopIndiServer"}');
 };
