@@ -52,6 +52,8 @@ const _update_func = (endpoint, token) => {
 
             _connected = connected;
 
+            _client.emit('indi', '{"<>": "getDrivers"}');
+
             if('$connection$' in _callbackDict) _callbackDict['$connection$'].forEach((callback) => {
 
                 callback(connected);
