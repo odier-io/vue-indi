@@ -21,27 +21,25 @@ const sock = inject('sock');
 /* FUNCTIONS                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const serverStart = () => {
-
-    alert(JSON.stringify(indiStore.driverDict));
+const serverXXX = (command) => {
 
     Object.keys(indiStore.defXXXVectorDict).forEach((key) => delete indiStore.defXXXVectorDict[key]);
 
     Object.keys(indiStore.messageDict).forEach((key) => delete indiStore.messageDict[key]);
 
-    sock.emit('indi', '{"<>": "startIndiServer"}');
+    const drivers = Object.values(indiStore.driverDict).map(x => x.driver);
+
+    sock.emit('indi', JSON.stringify({
+        drivers: drivers,
+        '<>': command,
+    }));
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-const serverStop = () => {
+const serverStart = () => serverXXX('startIndiServer');
 
-    Object.keys(indiStore.defXXXVectorDict).forEach((key) => delete indiStore.defXXXVectorDict[key]);
-
-    Object.keys(indiStore.messageDict).forEach((key) => delete indiStore.messageDict[key]);
-
-    sock.emit('indi', '{"<>": "stopIndiServer"}');
-};
+const serverStop = () => serverXXX('stopIndiServer');
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 </script>
