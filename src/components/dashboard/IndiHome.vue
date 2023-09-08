@@ -44,12 +44,12 @@ const serverStop = () => {
 
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
-                        <input type="radio" class="btn-check" name="D0129CB6" id="DE92759F" autocomplete="off" value="off" :value="Object.keys(indiStore.defXXXVectorDict).length === 0" @change="serverStart">
+                        <input type="radio" class="btn-check" name="D0129CB6" id="DE92759F" autocomplete="off" value="off" :value="indiStore.isOn ? 'off' : 'on'" @change="serverStart">
                         <label class="btn btn-secondary" for="DE92759F">
                             Turn off devices
                         </label>
 
-                        <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off" value="on" :value="Object.keys(indiStore.defXXXVectorDict).length !== 0" @change="serverStop">
+                        <input type="radio" class="btn-check" name="D0129CB6" id="D8FB7C2E" autocomplete="off" value="on" :value="indiStore.isOn ? 'on' : 'off'" @change="serverStop">
                         <label class="btn btn-primary" for="D8FB7C2E">
                             Turn on devices
                         </label>
