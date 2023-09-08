@@ -1,6 +1,10 @@
 <script setup>
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+import { inject } from 'vue';
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
 import useIndiStore from '../../stores/indi';
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -10,19 +14,23 @@ import useIndiStore from '../../stores/indi';
 const indiStore = useIndiStore();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
+
+const sock = inject('sock');
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* FUNCTIONS                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const serverStart = () => {
 
-    alert('serverStart');
+    sock.emit('indi', '{"<>": "startIndiServer"}');
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 const serverStop = () => {
 
-    alert('serverStop');
+    sock.emit('indi', '{"<>": "stopIndiServer"}');
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -44,10 +52,10 @@ const serverStop = () => {
 
                     <div class="btn-group btn-group-sm w-75" role="group">
 
-                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-secondary'" style="width: 50%;" @click="serverStop">
+                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-secondary'" style="width: 50%;" @click="serverStop" :disabled="!indiStore.isOn">
                             Turn off devices
                         </button>
-                        <button :class="!indiStore.isOn ? 'btn btn-outline-primary' : 'btn btn-primary'" style="width: 50%;" @click="serverStart">
+                        <button :class="!indiStore.isOn ? 'btn btn-outline-primary' : 'btn btn-primary'" style="width: 50%;" @click="serverStart" :disabled="indiStore.isOn">
                             Turn on devices
                         </button>
 
