@@ -27,10 +27,7 @@ const serverXXX = (command) => {
 
     Object.keys(indiStore.messageDict).forEach((key) => delete indiStore.messageDict[key]);
 
-    sock.emit('indi', JSON.stringify({
-        drivers: indiStore.drivers,
-        '<>': command,
-    }));
+    sock.emit('indi', JSON.stringify({'<>': command, drivers: indiStore.drivers}));
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -58,10 +55,10 @@ const serverStop = () => serverXXX('stopIndiServer');
 
                     <div class="btn-group btn-group-sm w-75" role="group">
 
-                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary' : 'btn btn-secondary'" style="width: 50%;" @click="serverStop">
+                        <button :class="indiStore.isOn ? 'btn btn-outline-secondary w-50' : 'btn btn-secondary w-50'" @click="serverStop" :disabled="/*--------*/ false /*--------*/">
                             Turn off devices
                         </button>
-                        <button :class="!indiStore.isOn ? 'btn btn-outline-primary' : 'btn btn-primary'" style="width: 50%;" @click="serverStart" :disabled="indiStore.drivers.length === 0">
+                        <button :class="!indiStore.isOn ? 'btn btn-outline-primary w-50' : 'btn btn-primary w-50'" @click="serverStart" :disabled="indiStore.drivers.length === 0">
                             Turn on devices
                         </button>
 

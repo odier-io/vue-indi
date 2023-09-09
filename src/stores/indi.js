@@ -1,4 +1,4 @@
-// noinspection JSUnresolvedReference
+// noinspection JSUnresolvedReference, JSUnusedGlobalSymbols
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 import { defineStore } from 'pinia';
@@ -58,6 +58,23 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
+        isOn()
+        {
+            return Object.keys(this.   driverDict   ).length > 0
+                   &&
+                   Object.keys(this.defXXXVectorDict).length > 0
+            ;
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
+        drivers()
+        {
+            return Object.values(this.driverDict).map(x => x.driver);
+        },
+
+        /*------------------------------------------------------------------------------------------------------------*/
+
         categoryDefs()
         {
             return CATEGORY_DEFS;
@@ -75,13 +92,6 @@ const useIndiStore = defineStore('indi', {
 
         /*------------------------------------------------------------------------------------------------------------*/
 
-        drivers()
-        {
-            return Object.values(this.driverDict).map(x => x.driver);
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
         variables()
         {
             const result = {};
@@ -92,13 +102,6 @@ const useIndiStore = defineStore('indi', {
             }));
 
             return result;
-        },
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-        isOn()
-        {
-            return Object.keys(this.defXXXVectorDict).length > 0;
         },
 
         /*------------------------------------------------------------------------------------------------------------*/
