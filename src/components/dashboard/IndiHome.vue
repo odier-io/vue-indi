@@ -27,7 +27,10 @@ const serverXXX = (command) => {
 
     Object.keys(indiStore.messageDict).forEach((key) => delete indiStore.messageDict[key]);
 
-    sock.emit('indi', JSON.stringify({'<>': command, drivers: indiStore.drivers}));
+    sock.emit('indi-ctrl', JSON.stringify({
+        'drivers': indiStore.drivers,
+        '<>': command,
+    }));
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
